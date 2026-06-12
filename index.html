@@ -496,6 +496,136 @@
       letter-spacing: 0.5px;
     }
 
+    /* TESTIMONIALS */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 52px;
+    }
+
+    .testimonial-card {
+      background: var(--light);
+      border-radius: 20px;
+      padding: 28px;
+      border: 1px solid rgba(26,95,168,0.08);
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(26,95,168,0.1);
+    }
+
+    .testimonial-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; }
+
+    .testimonial-text {
+      color: var(--navy);
+      font-size: 0.97rem;
+      line-height: 1.7;
+      flex: 1;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--navy);
+    }
+
+    .testimonial-school {
+      font-size: 0.78rem;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+
+    /* TEAM */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 52px;
+    }
+
+    .team-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 32px 24px;
+      text-align: center;
+      border: 1px solid rgba(26,95,168,0.1);
+      transition: all 0.3s;
+    }
+
+    .team-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(26,95,168,0.1);
+    }
+
+    .team-founder {
+      border-top: 4px solid var(--gold);
+    }
+
+    .team-avatar {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin: 0 auto 16px;
+    }
+
+    .team-founder .team-avatar {
+      background: linear-gradient(135deg, var(--gold), #e8961f);
+      color: var(--navy);
+    }
+
+    .team-name {
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .team-role {
+      font-size: 0.82rem;
+      color: var(--gray);
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     /* CONTACT PAGE */
     #contact { background: var(--white); display: none; }
 
@@ -729,9 +859,10 @@
     <div class="nav-logo">THHYE<span>.</span></div>
     <ul class="nav-links">
       <li><a href="#" onclick="showPage('home')">Home</a></li>
-      <li><a href="#" onclick="showPage('home'); scrollTo('about')">About</a></li>
-      <li><a href="#" onclick="showPage('home'); scrollTo('workshops')">Workshops</a></li>
-      <li><a href="#" onclick="showPage('home'); scrollTo('locations')">Locations</a></li>
+      <li><a href="#" onclick="showPage('home','about')">About</a></li>
+      <li><a href="#" onclick="showPage('home','workshops')">Workshops</a></li>
+      <li><a href="#" onclick="showPage('home','testimonials')">Testimonials</a></li>
+      <li><a href="#" onclick="showPage('home','team')">Team</a></li>
       <li><a href="#" onclick="showPage('contact')" class="nav-cta">Contact Us</a></li>
     </ul>
   </nav>
@@ -753,7 +884,7 @@
             THHYE offers free weekly technology workshops for seniors and elderly residents across Plain City and Dublin — teaching smartphones, video calls, scam prevention, and more.
           </p>
           <div class="hero-buttons fade-in">
-            <a href="#" onclick="showPage('home'); scrollTo('workshops')" class="btn-primary">See Our Workshops</a>
+            <a href="#" onclick="showPage('home','workshops')" class="btn-primary">See Our Workshops</a>
             <a href="#" onclick="showPage('contact')" class="btn-outline">Get In Touch</a>
           </div>
         </div>
@@ -868,6 +999,114 @@
       </div>
     </section>
 
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" style="background:var(--white);">
+      <div class="section-inner">
+        <div class="section-label">What Participants Say</div>
+        <h2 class="section-title">Real Voices, Real Impact</h2>
+        <p class="section-sub">Straight from the kids who attended our workshops — in their own words.</p>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"This program really helped me to learn about AI and it was really fun."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">S</div>
+              <div>
+                <div class="testimonial-name">Sarakshi</div>
+                <div class="testimonial-school">6th Grader, Karrer Middle School</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"I learned that AI helps me with math problems."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">P</div>
+              <div>
+                <div class="testimonial-name">Pranvi</div>
+                <div class="testimonial-school">Olentangy Student</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"I learned in this program that there are 3 types of AI and one of them is generative."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">👤</div>
+              <div>
+                <div class="testimonial-name">Workshop Participant</div>
+                <div class="testimonial-school">THHYE Youth Workshop</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"I love this workshop, it's amazing. I learned about how to make games using AI."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">A</div>
+              <div>
+                <div class="testimonial-name">Ansh</div>
+                <div class="testimonial-school">7th Grader, Karrer Middle School</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"This was fun!"</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">👤</div>
+              <div>
+                <div class="testimonial-name">Workshop Participant</div>
+                <div class="testimonial-school">THHYE Youth Workshop</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"I learned that AI can be sometimes wrong."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">👤</div>
+              <div>
+                <div class="testimonial-name">Workshop Participant</div>
+                <div class="testimonial-school">THHYE Youth Workshop</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" style="background:var(--light);">
+      <div class="section-inner">
+        <div class="section-label">Our People</div>
+        <h2 class="section-title">The Team Behind THHYE</h2>
+        <p class="section-sub">Student volunteers passionate about closing the digital divide in our community.</p>
+        <div class="team-grid">
+          <div class="team-card team-founder">
+            <div class="team-avatar">AP</div>
+            <div class="team-name">Aarav Patel</div>
+            <div class="team-role">Co-Founder</div>
+          </div>
+          <div class="team-card team-founder">
+            <div class="team-avatar">AK</div>
+            <div class="team-name">Aryan Kondekar</div>
+            <div class="team-role">Co-Founder</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">CB</div>
+            <div class="team-name">Charan Bhaskarla</div>
+            <div class="team-role">Outreach Director</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">AK</div>
+            <div class="team-name">Anvith Kurra</div>
+            <div class="team-role">Outreach Team Member</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- LOCATIONS -->
     <section id="locations">
       <div class="section-inner">
@@ -913,7 +1152,7 @@
               <div class="contact-detail-icon">✉️</div>
               <div>
                 <div style="font-size:0.8rem;color:var(--gray);margin-bottom:2px;">Email</div>
-                <a href="mailto:thhye.help@gmail.com">thhye.help@gmail.com</a>
+                <a href="mailto:Galiyo113@gmail.com">Galiyo113@gmail.com</a>
               </div>
             </div>
 
@@ -967,7 +1206,7 @@
             <div class="success-msg" id="success-msg">
               ✅ Message sent! We'll get back to you at <strong id="confirm-email"></strong> shortly.
             </div>
-            <p class="form-note">Your message goes directly to our team at thhye.help@gmail.com</p>
+            <p class="form-note">Your message goes directly to our team at Galiyo113@gmail.com</p>
           </div>
         </div>
       </div>
@@ -980,26 +1219,31 @@
     <p class="footer-tagline">Technology Helping Hands for Youth and Elderly</p>
     <ul class="footer-links">
       <li><a href="#" onclick="showPage('home')">Home</a></li>
-      <li><a href="#" onclick="showPage('home');scrollTo('about')">About</a></li>
-      <li><a href="#" onclick="showPage('home');scrollTo('workshops')">Workshops</a></li>
-      <li><a href="#" onclick="showPage('home');scrollTo('locations')">Locations</a></li>
+      <li><a href="#" onclick="showPage('home','about')">About</a></li>
+      <li><a href="#" onclick="showPage('home','workshops')">Workshops</a></li>
+      <li><a href="#" onclick="showPage('home','locations')">Locations</a></li>
       <li><a href="#" onclick="showPage('contact')">Contact</a></li>
     </ul>
     <p class="footer-copy">© 2025 THHYE — Founded by Aarav Patel & Aryan Kondekar. All rights reserved.</p>
   </footer>
 
   <script>
-    function showPage(name) {
+    function showPage(name, scrollId) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById('page-' + name).classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (scrollId) {
+        setTimeout(() => {
+          const el = document.getElementById(scrollId);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
 
     function scrollTo(id) {
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
 
     function submitForm() {
@@ -1022,7 +1266,7 @@
         'Message:\n' + message
       );
 
-      window.location.href = 'mailto:thhye.help@gmail.com?subject=' + subject + '&body=' + body;
+      window.location.href = 'mailto:Galiyo113@gmail.com?subject=' + subject + '&body=' + body;
 
       document.getElementById('confirm-email').textContent = email;
       document.getElementById('success-msg').style.display = 'block';
