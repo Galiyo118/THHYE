@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>THHYE — Technology Helping Hands for Youth and Elderly</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VFDZ53EEH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    // Default to denied until the visitor accepts the cookie banner.
+    gtag('consent', 'default', {
+      analytics_storage: localStorage.getItem('thhye_cookie_consent') === 'accepted' ? 'granted' : 'denied'
+    });
+    gtag('config', 'G-8VFDZ53EEH', { anonymize_ip: true, send_page_view: false });
+  </script>
+
   <style>
     :root {
       --navy: #0f2444;
@@ -52,7 +66,7 @@
 
     .nav-links {
       display: flex;
-      gap: 36px;
+      gap: 28px;
       list-style: none;
     }
 
@@ -496,6 +510,82 @@
       letter-spacing: 0.5px;
     }
 
+    /* WHATSAPP COMMUNITY */
+    #whatsapp-community {
+      background: var(--white);
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+
+    .whatsapp-card {
+      max-width: 780px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      border-radius: 24px;
+      padding: 48px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      box-shadow: 0 24px 64px rgba(18,140,126,0.25);
+    }
+
+    .whatsapp-icon-wrap {
+      flex-shrink: 0;
+      width: 76px;
+      height: 76px;
+      background: rgba(255,255,255,0.18);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .whatsapp-icon-wrap svg { width: 40px; height: 40px; }
+
+    .whatsapp-copy { flex: 1; }
+
+    .whatsapp-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .whatsapp-desc {
+      color: rgba(255,255,255,0.9);
+      line-height: 1.6;
+      font-size: 0.98rem;
+      margin-bottom: 0;
+    }
+
+    .whatsapp-btn {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      color: #128C7E;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+    }
+
+    .whatsapp-btn svg { width: 18px; height: 18px; }
+
+    @media (max-width: 768px) {
+      .whatsapp-card { flex-direction: column; text-align: center; padding: 36px 28px; }
+      .whatsapp-btn { width: 100%; justify-content: center; }
+    }
+
     /* TESTIMONIALS */
     .testimonials-grid {
       display: grid;
@@ -621,9 +711,105 @@
       font-weight: 500;
     }
 
+    /* PARTNERSHIPS */
+    #partnerships-page {
+      background: var(--white);
+      padding-top: 140px;
+    }
+
+    .partnership-hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
+      align-items: center;
+      margin-top: 48px;
+    }
+
+    .partnership-copy p {
+      color: var(--gray);
+      line-height: 1.8;
+      font-size: 1.02rem;
+      margin-bottom: 18px;
+    }
+
+    .partner-panel {
+      background: var(--light);
+      border: 1px solid rgba(26,95,168,0.12);
+      border-radius: 20px;
+      padding: 36px;
+    }
+
+    .partner-mark {
+      background: var(--white);
+      border: 1px solid rgba(15,36,68,0.08);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .partner-logo-img {
+      max-width: 100%;
+      height: auto;
+      max-height: 90px;
+    }
+
+    .partner-logo-sub {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(79,163,224,0.15);
+      color: var(--blue);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .partner-title {
+      font-family: 'DM Serif Display', serif;
+      color: var(--navy);
+      font-size: 1.45rem;
+      margin-bottom: 10px;
+    }
+
+    .partner-detail {
+      color: var(--gray);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .partnership-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 52px;
+    }
+
+    .partnership-point {
+      background: var(--light);
+      border-radius: 18px;
+      padding: 24px;
+      border: 1px solid rgba(26,95,168,0.1);
+    }
+
+    .partnership-point h3 {
+      color: var(--navy);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .partnership-point p {
+      color: var(--gray);
+      line-height: 1.65;
+      font-size: 0.92rem;
+    }
+
     @media (max-width: 768px) {
       .testimonials-grid { grid-template-columns: 1fr; }
       .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .partnership-hero, .partnership-points { grid-template-columns: 1fr; }
     }
 
     /* CONTACT PAGE */
@@ -834,6 +1020,74 @@
       text-align: center;
     }
 
+    /* COOKIE CONSENT */
+    .cookie-banner {
+      position: fixed;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 20px 22px;
+      background: rgba(15, 36, 68, 0.98);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+    }
+
+    .cookie-banner.active {
+      display: flex;
+    }
+
+    .cookie-copy {
+      line-height: 1.5;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .cookie-copy strong {
+      display: block;
+      color: var(--white);
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .cookie-actions {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .cookie-btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .cookie-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .cookie-btn.accept {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .cookie-btn.decline {
+      background: rgba(255,255,255,0.12);
+      color: var(--white);
+    }
+
     /* MOBILE */
     @media (max-width: 768px) {
       nav { padding: 16px 20px; }
@@ -849,6 +1103,9 @@
       .contact-form { padding: 28px 20px; }
       .footer-links { flex-wrap: wrap; gap: 16px; }
       .founders { flex-direction: column; }
+      .cookie-banner { left: 14px; right: 14px; bottom: 14px; flex-direction: column; align-items: stretch; }
+      .cookie-actions { width: 100%; }
+      .cookie-btn { flex: 1; }
     }
   </style>
 </head>
@@ -863,6 +1120,7 @@
       <li><a href="#" onclick="showPage('home','workshops')">Workshops</a></li>
       <li><a href="#" onclick="showPage('home','testimonials')">Testimonials</a></li>
       <li><a href="#" onclick="showPage('home','team')">Team</a></li>
+      <li><a href="#" onclick="showPage('partnerships')">Partnerships</a></li>
       <li><a href="#" onclick="showPage('contact')" class="nav-cta">Contact Us</a></li>
     </ul>
   </nav>
@@ -881,7 +1139,7 @@
             Bridging the <em>digital divide</em>, one workshop at a time.
           </h1>
           <p class="hero-sub fade-in">
-            THHYE offers free weekly technology workshops for seniors and elderly residents across Plain City and Dublin — teaching smartphones, video calls, scam prevention, and more.
+            THHYE offers free weekly technology workshops for seniors and elderly residents across Delaware County and Dublin — teaching smartphones, video calls, scam prevention, and more.
           </p>
           <div class="hero-buttons fade-in">
             <a href="#" onclick="showPage('home','workshops')" class="btn-primary">See Our Workshops</a>
@@ -891,13 +1149,13 @@
         <div class="hero-visual fade-in">
           <img
             class="hero-img-main"
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&q=80"
-            alt="Volunteer helping senior with technology"
+            src="assets/workshop-group.jpg"
+            alt="THHYE workshop participants gathered after a session"
           />
           <img
             class="hero-img-float"
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=300&q=80"
-            alt="Community workshop"
+            src="assets/workshop-bingo.jpg"
+            alt="THHYE students participating in a workshop activity"
           />
           <div class="hero-stat-card">
             <div class="hero-stat-num">100%</div>
@@ -937,8 +1195,8 @@
           <div class="about-img-wrap">
             <img
               class="about-img"
-              src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=700&q=80"
-              alt="Seniors learning technology"
+              src="assets/workshop-session.jpg"
+              alt="THHYE community workshop session"
             />
             <div class="about-accent"></div>
           </div>
@@ -951,7 +1209,7 @@
               We believe every person deserves to feel confident with technology. Our volunteers sit one-on-one and in small groups with seniors, walking through real-world skills in a patient, judgment-free environment.
             </p>
             <p>
-              All workshops are completely free, open to all skill levels, and held at accessible community locations including the Plain City Senior Center and Dublin Public Library branches.
+              All workshops are completely free, open to all skill levels, and held at accessible community locations including the Delaware County District Library Orange Branch and Dublin Public Library branches.
             </p>
             <div class="founders">
               <div class="founder-card">
@@ -1019,23 +1277,23 @@
           </div>
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"I learned that AI helps me with math problems."</p>
+            <p class="testimonial-text">"I learned how to use agentic AI in this workshop and I had a lot of fun!"</p>
             <div class="testimonial-author">
-              <div class="testimonial-avatar">P</div>
+              <div class="testimonial-avatar">A</div>
               <div>
-                <div class="testimonial-name">Pranvi</div>
-                <div class="testimonial-school">Olentangy Student</div>
+                <div class="testimonial-name">Akhil Yendluri</div>
+                <div class="testimonial-school">9th Grader, New Albany High School</div>
               </div>
             </div>
           </div>
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"I learned in this program that there are 3 types of AI and one of them is generative."</p>
+            <p class="testimonial-text">"I learned how to be a good digital citizen and I recommend this workshop!"</p>
             <div class="testimonial-author">
-              <div class="testimonial-avatar">👤</div>
+              <div class="testimonial-avatar">D</div>
               <div>
-                <div class="testimonial-name">Workshop Participant</div>
-                <div class="testimonial-school">THHYE Youth Workshop</div>
+                <div class="testimonial-name">Dharmik Yendluri</div>
+                <div class="testimonial-school">8th Grader, Eversole Run Middle School</div>
               </div>
             </div>
           </div>
@@ -1052,23 +1310,23 @@
           </div>
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"This was fun!"</p>
+            <p class="testimonial-text">"I learned that YouTube uses AI."</p>
             <div class="testimonial-author">
-              <div class="testimonial-avatar">👤</div>
+              <div class="testimonial-avatar">T</div>
               <div>
-                <div class="testimonial-name">Workshop Participant</div>
-                <div class="testimonial-school">THHYE Youth Workshop</div>
+                <div class="testimonial-name">Tanish Yendluri</div>
+                <div class="testimonial-school">Student, Glacier Ridge Elementary School</div>
               </div>
             </div>
           </div>
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"I learned that AI can be sometimes wrong."</p>
+            <p class="testimonial-text">"AI can help me draw Christmas trees."</p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">👤</div>
               <div>
                 <div class="testimonial-name">Workshop Participant</div>
-                <div class="testimonial-school">THHYE Youth Workshop</div>
+                <div class="testimonial-school">Student, New Albany Middle School</div>
               </div>
             </div>
           </div>
@@ -1098,11 +1356,6 @@
             <div class="team-name">Charan Bhaskarla</div>
             <div class="team-role">Outreach Director</div>
           </div>
-          <div class="team-card">
-            <div class="team-avatar">AK</div>
-            <div class="team-name">Anvith Kurra</div>
-            <div class="team-role">Outreach Team Member</div>
-          </div>
         </div>
       </div>
     </section>
@@ -1116,8 +1369,8 @@
         <div class="locations-grid">
           <div class="location-card">
             <div class="location-icon">🏛️</div>
-            <div class="location-name">Plain City Senior Center</div>
-            <p class="location-detail">Our flagship location serving the Plain City community. Drop in any week for our signature smartphone and video calling sessions.</p>
+            <div class="location-name">Delaware County District Library Orange Branch</div>
+            <p class="location-detail">A community library location where THHYE has hosted hands-on workshops. Drop in for approachable sessions on everyday technology skills.</p>
             <span class="location-tag">Weekly Sessions</span>
           </div>
           <div class="location-card">
@@ -1133,7 +1386,88 @@
       </div>
     </section>
 
+    <!-- WHATSAPP COMMUNITY -->
+    <section id="whatsapp-community">
+      <div class="section-inner">
+        <div class="whatsapp-card">
+          <div class="whatsapp-icon-wrap">
+            <svg viewBox="0 0 32 32" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.004 0C7.164 0 0 7.163 0 16c0 2.822.738 5.556 2.14 7.965L0.052 32l8.24-2.163A15.9 15.9 0 0 0 16.004 32C24.84 32 32 24.837 32 16S24.84 0 16.004 0zm0 29.27a13.24 13.24 0 0 1-6.75-1.847l-.484-.288-4.892 1.284 1.307-4.77-.315-.49A13.24 13.24 0 0 1 2.73 16C2.73 8.66 8.664 2.73 16.004 2.73 23.34 2.73 29.27 8.66 29.27 16s-5.93 13.27-13.266 13.27zm7.27-9.94c-.398-.2-2.354-1.163-2.72-1.296-.365-.133-.63-.2-.897.2-.265.398-1.03 1.296-1.263 1.562-.232.266-.464.3-.862.1-.398-.2-1.68-.62-3.2-1.976-1.183-1.056-1.982-2.36-2.214-2.76-.232-.398-.025-.613.175-.812.18-.18.398-.464.597-.696.2-.232.265-.398.398-.663.133-.266.066-.498-.033-.696-.1-.2-.897-2.164-1.23-2.963-.324-.78-.653-.675-.897-.688l-.764-.013c-.265 0-.696.1-1.06.498-.365.398-1.395 1.363-1.395 3.326s1.428 3.86 1.627 4.127c.2.266 2.81 4.29 6.81 6.017.951.41 1.694.655 2.273.838.955.304 1.824.261 2.51.158.766-.114 2.354-.962 2.686-1.892.332-.93.332-1.727.232-1.892-.1-.166-.365-.266-.763-.465z"/>
+            </svg>
+          </div>
+          <div class="whatsapp-copy">
+            <h3 class="whatsapp-title">Join Our WhatsApp Community</h3>
+            <p class="whatsapp-desc">Get workshop updates, schedule changes, and connect with volunteers and participants — right from your phone.</p>
+          </div>
+          <a
+            href="https://chat.whatsapp.com/EQsjMkrG0H793tPVVtGReC?mode=gi_t"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="whatsapp-btn"
+            onclick="trackEvent('whatsapp_click')"
+          >
+            <svg viewBox="0 0 32 32" fill="#128C7E" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.004 0C7.164 0 0 7.163 0 16c0 2.822.738 5.556 2.14 7.965L0.052 32l8.24-2.163A15.9 15.9 0 0 0 16.004 32C24.84 32 32 24.837 32 16S24.84 0 16.004 0zm0 29.27a13.24 13.24 0 0 1-6.75-1.847l-.484-.288-4.892 1.284 1.307-4.77-.315-.49A13.24 13.24 0 0 1 2.73 16C2.73 8.66 8.664 2.73 16.004 2.73 23.34 2.73 29.27 8.66 29.27 16s-5.93 13.27-13.266 13.27zm7.27-9.94c-.398-.2-2.354-1.163-2.72-1.296-.365-.133-.63-.2-.897.2-.265.398-1.03 1.296-1.263 1.562-.232.266-.464.3-.862.1-.398-.2-1.68-.62-3.2-1.976-1.183-1.056-1.982-2.36-2.214-2.76-.232-.398-.025-.613.175-.812.18-.18.398-.464.597-.696.2-.232.265-.398.398-.663.133-.266.066-.498-.033-.696-.1-.2-.897-2.164-1.23-2.963-.324-.78-.653-.675-.897-.688l-.764-.013c-.265 0-.696.1-1.06.498-.365.398-1.395 1.363-1.395 3.326s1.428 3.86 1.627 4.127c.2.266 2.81 4.29 6.81 6.017.951.41 1.694.655 2.273.838.955.304 1.824.261 2.51.158.766-.114 2.354-.962 2.686-1.892.332-.93.332-1.727.232-1.892-.1-.166-.365-.266-.763-.465z"/>
+            </svg>
+            Join the Chat
+          </a>
+        </div>
+      </div>
+    </section>
+
   </div><!-- end page-home -->
+
+  <!-- ===== PARTNERSHIPS PAGE ===== -->
+  <div id="page-partnerships" class="page">
+    <section id="partnerships-page">
+      <div class="section-inner">
+        <div class="section-label">Community Partners</div>
+        <h2 class="section-title">Our Partnership With GMOCO</h2>
+        <p class="section-sub">THHYE is proud to partner with GMOCO and their YUVA Connect team to expand youth-led community service through accessible technology education.</p>
+
+        <div class="partnership-hero">
+          <div class="partnership-copy">
+            <p>
+              Through this partnership, THHYE works alongside GMOCO's YUVA Connect team to bring practical, welcoming technology workshops to more community members.
+            </p>
+            <p>
+              YUVA Connect's focus on youth engagement aligns closely with THHYE's mission: students helping others build confidence with everyday digital tools.
+            </p>
+            <p>
+              Together, we can reach more families, support more learners, and create more opportunities for young volunteers to serve with purpose.
+            </p>
+            <a href="#" onclick="showPage('contact')" class="btn-primary">Partner With Us</a>
+          </div>
+
+          <div class="partner-panel">
+            <div class="partner-mark" aria-label="GMOCO YUVA Connect">
+              <img class="partner-logo-img" src="assets/gmoco-logo.png" alt="GMOCO — Gujarati Mandal of Central Ohio logo" />
+              <div class="partner-logo-sub">YUVA Connect Team</div>
+            </div>
+            <div class="partner-title">Youth Service, Shared Impact</div>
+            <p class="partner-detail">
+              GMOCO's YUVA Connect team helps strengthen THHYE's community outreach by connecting motivated youth volunteers with meaningful service opportunities.
+            </p>
+          </div>
+        </div>
+
+        <div class="partnership-points">
+          <div class="partnership-point">
+            <h3>Volunteer Support</h3>
+            <p>Connecting student volunteers with workshops where they can teach, guide, and serve.</p>
+          </div>
+          <div class="partnership-point">
+            <h3>Community Reach</h3>
+            <p>Helping THHYE bring technology education to more local residents and families.</p>
+          </div>
+          <div class="partnership-point">
+            <h3>Youth Leadership</h3>
+            <p>Creating real opportunities for young people to lead with patience, empathy, and skill.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div><!-- end page-partnerships -->
 
   <!-- ===== CONTACT PAGE ===== -->
   <div id="page-contact" class="page">
@@ -1152,7 +1486,7 @@
               <div class="contact-detail-icon">✉️</div>
               <div>
                 <div style="font-size:0.8rem;color:var(--gray);margin-bottom:2px;">Email</div>
-                <a href="mailto:Galiyo113@gmail.com">Galiyo113@gmail.com</a>
+                <a href="mailto:thhye.help@gmail.com">thhye.help@gmail.com</a>
               </div>
             </div>
 
@@ -1160,7 +1494,7 @@
               <div class="contact-detail-icon">📍</div>
               <div>
                 <div style="font-size:0.8rem;color:var(--gray);margin-bottom:2px;">Locations</div>
-                Plain City Senior Center &<br>Dublin Public Library
+                Delaware County District Library Orange Branch &<br>Dublin Public Library
               </div>
             </div>
 
@@ -1206,7 +1540,7 @@
             <div class="success-msg" id="success-msg">
               ✅ Message sent! We'll get back to you at <strong id="confirm-email"></strong> shortly.
             </div>
-            <p class="form-note">Your message goes directly to our team at Galiyo113@gmail.com</p>
+            <p class="form-note">Your message goes directly to our team at thhye.help@gmail.com</p>
           </div>
         </div>
       </div>
@@ -1222,16 +1556,139 @@
       <li><a href="#" onclick="showPage('home','about')">About</a></li>
       <li><a href="#" onclick="showPage('home','workshops')">Workshops</a></li>
       <li><a href="#" onclick="showPage('home','locations')">Locations</a></li>
+      <li><a href="#" onclick="showPage('partnerships')">Partnerships</a></li>
       <li><a href="#" onclick="showPage('contact')">Contact</a></li>
     </ul>
     <p class="footer-copy">© 2025 THHYE — Founded by Aarav Patel & Aryan Kondekar. All rights reserved.</p>
   </footer>
 
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <div class="cookie-copy">
+      <strong>Help us improve THHYE.</strong>
+      We use optional cookies to understand anonymous visits, section views, and contact attempts. We do not track your contact message, name, or email in analytics.
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-btn decline" type="button" onclick="setCookieConsent(false)">Decline</button>
+      <button class="cookie-btn accept" type="button" onclick="setCookieConsent(true)">Accept</button>
+    </div>
+  </div>
+
   <script>
+    const ANALYTICS_ENDPOINT = '';
+    const COOKIE_CONSENT_KEY = 'thhye_cookie_consent';
+    const VISITOR_COOKIE_NAME = 'thhye_visitor_id';
+    const viewedSections = new Set();
+
+    function setCookie(name, value, days) {
+      const expires = new Date(Date.now() + days * 864e5).toUTCString();
+      const secure = location.protocol === 'https:' ? '; Secure' : '';
+      document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/; SameSite=Lax' + secure;
+    }
+
+    function getCookie(name) {
+      return document.cookie.split('; ').reduce((found, part) => {
+        const [key, value] = part.split('=');
+        return key === name ? decodeURIComponent(value || '') : found;
+      }, '');
+    }
+
+    function deleteCookie(name) {
+      document.cookie = name + '=; Max-Age=0; path=/; SameSite=Lax';
+    }
+
+    function hasAnalyticsConsent() {
+      return localStorage.getItem(COOKIE_CONSENT_KEY) === 'accepted';
+    }
+
+    function getVisitorId() {
+      if (!hasAnalyticsConsent()) return null;
+      let visitorId = getCookie(VISITOR_COOKIE_NAME);
+      if (!visitorId) {
+        const randomId = crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2);
+        visitorId = 'thhye_' + randomId;
+        setCookie(VISITOR_COOKIE_NAME, visitorId, 365);
+      }
+      return visitorId;
+    }
+
+    function setCookieConsent(accepted) {
+      localStorage.setItem(COOKIE_CONSENT_KEY, accepted ? 'accepted' : 'declined');
+      document.getElementById('cookie-banner').classList.remove('active');
+
+      if (window.gtag) {
+        gtag('consent', 'update', { analytics_storage: accepted ? 'granted' : 'denied' });
+      }
+
+      if (accepted) {
+        getVisitorId();
+        trackEvent('cookie_consent_accepted');
+        trackEvent('page_view', { page: 'home' });
+      } else {
+        deleteCookie(VISITOR_COOKIE_NAME);
+      }
+    }
+
+    function setupCookieBanner() {
+      if (!localStorage.getItem(COOKIE_CONSENT_KEY)) {
+        document.getElementById('cookie-banner').classList.add('active');
+      }
+    }
+
+    function trackEvent(eventName, detail = {}) {
+      if (!hasAnalyticsConsent()) return;
+
+      const event = {
+        event: eventName,
+        visitorId: getVisitorId(),
+        path: location.pathname,
+        timestamp: new Date().toISOString(),
+        ...detail
+      };
+
+      const recentEvents = JSON.parse(localStorage.getItem('thhye_recent_events') || '[]');
+      recentEvents.push(event);
+      localStorage.setItem('thhye_recent_events', JSON.stringify(recentEvents.slice(-50)));
+
+      if (window.gtag) {
+        window.gtag('event', eventName, detail);
+      }
+
+      if (ANALYTICS_ENDPOINT) {
+        const payload = JSON.stringify(event);
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon(ANALYTICS_ENDPOINT, new Blob([payload], { type: 'application/json' }));
+        } else {
+          fetch(ANALYTICS_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: payload,
+            keepalive: true
+          }).catch(() => {});
+        }
+      }
+    }
+
+    function setupSectionTracking() {
+      const sections = document.querySelectorAll('section[id]');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const sectionId = entry.target.id;
+          if (viewedSections.has(sectionId)) return;
+          viewedSections.add(sectionId);
+          trackEvent('section_view', { section: sectionId });
+        });
+      }, { threshold: 0.45 });
+
+      sections.forEach(section => observer.observe(section));
+    }
+
     function showPage(name, scrollId) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById('page-' + name).classList.add('active');
+      trackEvent('page_view', { page: name });
       if (scrollId) {
+        trackEvent('section_nav_click', { page: name, section: scrollId });
         setTimeout(() => {
           const el = document.getElementById(scrollId);
           if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -1243,7 +1700,10 @@
 
     function scrollTo(id) {
       const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      if (el) {
+        trackEvent('section_nav_click', { section: id });
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
     }
 
     function submitForm() {
@@ -1266,11 +1726,18 @@
         'Message:\n' + message
       );
 
-      window.location.href = 'mailto:Galiyo113@gmail.com?subject=' + subject + '&body=' + body;
+      trackEvent('contact_attempt', { topic });
+      window.location.href = 'mailto:thhye.help@gmail.com?subject=' + subject + '&body=' + body;
 
       document.getElementById('confirm-email').textContent = email;
       document.getElementById('success-msg').style.display = 'block';
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setupCookieBanner();
+      setupSectionTracking();
+      trackEvent('page_view', { page: 'home' });
+    });
   </script>
 
 </body>
