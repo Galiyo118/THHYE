@@ -654,20 +654,27 @@
     }
 
     /* TEAM */
+    #team-page {
+      background: var(--white);
+      padding-top: 140px;
+    }
+
     .team-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
       margin-top: 52px;
     }
 
     .team-card {
       background: var(--white);
       border-radius: 20px;
-      padding: 32px 24px;
-      text-align: center;
+      padding: 32px;
       border: 1px solid rgba(26,95,168,0.1);
       transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 32px;
     }
 
     .team-card:hover {
@@ -676,39 +683,59 @@
     }
 
     .team-founder {
-      border-top: 4px solid var(--gold);
+      border-left: 4px solid var(--gold);
     }
 
-    .team-avatar {
-      width: 64px;
-      height: 64px;
-      background: linear-gradient(135deg, var(--navy), var(--blue));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin: 0 auto 16px;
+    .team-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 16px;
+      object-fit: cover;
+      object-position: top center;
+      flex-shrink: 0;
     }
 
-    .team-founder .team-avatar {
-      background: linear-gradient(135deg, var(--gold), #e8961f);
-      color: var(--navy);
-    }
+    .team-info { flex: 1; }
 
     .team-name {
       font-weight: 600;
       color: var(--navy);
-      font-size: 1rem;
-      margin-bottom: 6px;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
     }
 
     .team-role {
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       color: var(--gray);
       font-weight: 500;
+    }
+
+    .team-bio {
+      text-align: left;
+      color: var(--gray);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-top: 14px;
+    }
+
+    .team-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      color: var(--blue);
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+    }
+
+    .team-linkedin:hover { color: var(--navy); }
+
+    @media (max-width: 768px) {
+      .team-card { flex-direction: column; text-align: center; }
+      .team-photo { width: 140px; height: 140px; }
+      .team-founder { border-left: none; border-top: 4px solid var(--gold); }
+      .team-bio, .team-linkedin { text-align: left; }
     }
 
     /* PARTNERSHIPS */
@@ -808,7 +835,6 @@
 
     @media (max-width: 768px) {
       .testimonials-grid { grid-template-columns: 1fr; }
-      .team-grid { grid-template-columns: repeat(2, 1fr); }
       .partnership-hero, .partnership-points { grid-template-columns: 1fr; }
     }
 
@@ -1119,7 +1145,7 @@
       <li><a href="#" onclick="showPage('home','about')">About</a></li>
       <li><a href="#" onclick="showPage('home','workshops')">Workshops</a></li>
       <li><a href="#" onclick="showPage('home','testimonials')">Testimonials</a></li>
-      <li><a href="#" onclick="showPage('home','team')">Team</a></li>
+      <li><a href="#" onclick="showPage('team')">Team</a></li>
       <li><a href="#" onclick="showPage('partnerships')">Partnerships</a></li>
       <li><a href="#" onclick="showPage('contact')" class="nav-cta">Contact Us</a></li>
     </ul>
@@ -1321,40 +1347,14 @@
           </div>
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"AI can help me draw Christmas trees."</p>
+            <p class="testimonial-text">"I learned that AI helps me with math problems."</p>
             <div class="testimonial-author">
-              <div class="testimonial-avatar">👤</div>
+              <div class="testimonial-avatar">P</div>
               <div>
-                <div class="testimonial-name">Workshop Participant</div>
-                <div class="testimonial-school">Student, New Albany Middle School</div>
+                <div class="testimonial-name">Pranvi</div>
+                <div class="testimonial-school">Olentangy Student</div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TEAM -->
-    <section id="team" style="background:var(--light);">
-      <div class="section-inner">
-        <div class="section-label">Our People</div>
-        <h2 class="section-title">The Team Behind THHYE</h2>
-        <p class="section-sub">Student volunteers passionate about closing the digital divide in our community.</p>
-        <div class="team-grid">
-          <div class="team-card team-founder">
-            <div class="team-avatar">AP</div>
-            <div class="team-name">Aarav Patel</div>
-            <div class="team-role">Co-Founder</div>
-          </div>
-          <div class="team-card team-founder">
-            <div class="team-avatar">AK</div>
-            <div class="team-name">Aryan Kondekar</div>
-            <div class="team-role">Co-Founder</div>
-          </div>
-          <div class="team-card">
-            <div class="team-avatar">CB</div>
-            <div class="team-name">Charan Bhaskarla</div>
-            <div class="team-role">Outreach Director</div>
           </div>
         </div>
       </div>
@@ -1416,6 +1416,46 @@
     </section>
 
   </div><!-- end page-home -->
+
+  <!-- ===== TEAM PAGE ===== -->
+  <div id="page-team" class="page">
+    <section id="team-page">
+      <div class="section-inner">
+        <div class="section-label">Our People</div>
+        <h2 class="section-title">The Team Behind THHYE</h2>
+        <p class="section-sub">Student volunteers passionate about closing the digital divide in our community.</p>
+        <div class="team-grid">
+          <div class="team-card team-founder">
+            <img class="team-photo" src="assets/team-aarav.jpg" alt="Aarav Patel" />
+            <div class="team-info">
+              <div class="team-name">Aarav Patel</div>
+              <div class="team-role">Co-Founder</div>
+              <p class="team-bio">Aarav Patel is an incoming sophomore at Dublin Jerome High School. He's an aspiring entrepreneur who builds what he pitches — AI-powered web apps, games, and the technology behind THHYE itself. Aarav leads the organization's technology, curriculum, and digital presence. He believes that seniors and students alike deserve to feel confident with the tools shaping their world, not left behind by them. Through THHYE, Aarav is learning that the best businesses start by solving a problem for someone who needs it.</p>
+              <a href="https://www.linkedin.com/in/aarav-patel-5a5110396" target="_blank" rel="noopener noreferrer" class="team-linkedin">LinkedIn ↗</a>
+            </div>
+          </div>
+          <div class="team-card team-founder">
+            <img class="team-photo" src="assets/team-aryan.jpg" alt="Aryan Kondekar" />
+            <div class="team-info">
+              <div class="team-name">Aryan Kondekar</div>
+              <div class="team-role">Co-Founder</div>
+              <p class="team-bio">Currently Aryan is an incoming sophomore at Dublin Jerome High School. He's passionate about a career in business specifically in the overlapping of finance and technology. Aryan leads the organization's vision, partnerships, and strategic growth. He believes every student, regardless of background, should have the opportunity to explore Cybersecurity and AI, through engaging hands-on experiences. Through THHYE, Aryan aims to make a lasting educational impact in communities.</p>
+              <a href="https://www.linkedin.com/in/aryan-kondekar-037060394/" target="_blank" rel="noopener noreferrer" class="team-linkedin">LinkedIn ↗</a>
+            </div>
+          </div>
+          <div class="team-card">
+            <img class="team-photo" src="assets/team-charan.jpg" alt="Charan Bhaskarla" />
+            <div class="team-info">
+              <div class="team-name">Charan Bhaskarla</div>
+              <div class="team-role">Workshop Director</div>
+              <p class="team-bio">Charan is an incoming sophomore at Dublin Jerome High School with a strong interest in leadership, technology, and community service. In his current role, he coordinates cybersecurity workshops to ensure each session runs smoothly and provides an engaging learning experience. He works with team members to organize logistics, communicate with schools and community organizations, and support presenters during workshops. He also helps make a curriculum that makes online safety accessible and interactive for students of all ages. Through this role, he has developed a deeper appreciation for teamwork and the importance of empowering others with the knowledge to stay safe online.</p>
+              <a href="https://www.linkedin.com/in/sricharan-bhaskarla-a98559380/" target="_blank" rel="noopener noreferrer" class="team-linkedin">LinkedIn ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div><!-- end page-team -->
 
   <!-- ===== PARTNERSHIPS PAGE ===== -->
   <div id="page-partnerships" class="page">
@@ -1556,8 +1596,10 @@
       <li><a href="#" onclick="showPage('home','about')">About</a></li>
       <li><a href="#" onclick="showPage('home','workshops')">Workshops</a></li>
       <li><a href="#" onclick="showPage('home','locations')">Locations</a></li>
+      <li><a href="#" onclick="showPage('team')">Team</a></li>
       <li><a href="#" onclick="showPage('partnerships')">Partnerships</a></li>
       <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+      <li><a href="https://www.linkedin.com/company/thhye-technology-helping-hands-for-youth-and-elderly/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
     </ul>
     <p class="footer-copy">© 2025 THHYE — Founded by Aarav Patel & Aryan Kondekar. All rights reserved.</p>
   </footer>
