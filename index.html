@@ -731,11 +731,46 @@
 
     .team-linkedin:hover { color: var(--navy); }
 
+    .founders-story {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-top: 52px;
+      padding: 32px;
+      border-radius: 20px;
+      background: var(--light);
+      border: 1px solid rgba(26,95,168,0.1);
+    }
+
+    .story-photo {
+      width: 320px;
+      height: 320px;
+      border-radius: 16px;
+      object-fit: cover;
+      object-position: center 60%;
+      flex-shrink: 0;
+    }
+
+    .story-text h3 {
+      color: var(--navy);
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+    }
+
+    .story-text p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
     @media (max-width: 768px) {
       .team-card { flex-direction: column; text-align: center; }
       .team-photo { width: 140px; height: 140px; }
       .team-founder { border-left: none; border-top: 4px solid var(--gold); }
       .team-bio, .team-linkedin { text-align: left; }
+      .founders-story { flex-direction: column; text-align: center; padding: 24px; }
+      .story-photo { width: 100%; height: 260px; }
+      .story-text p { text-align: left; }
     }
 
     /* PARTNERSHIPS */
@@ -1424,6 +1459,13 @@
         <div class="section-label">Our People</div>
         <h2 class="section-title">The Team Behind THHYE</h2>
         <p class="section-sub">Student volunteers passionate about closing the digital divide in our community.</p>
+        <div class="founders-story">
+          <img class="story-photo" src="assets/team-founders.jpg" alt="THHYE founders" />
+          <div class="story-text">
+            <h3>How THHYE Started</h3>
+            <p>Aarav and Aryan aren't just co-founders — they're friends who grew up together. It was watching their own grandparents struggle with a video call or a suspicious text message that made the problem click for them. As students who've never known a world without a smartphone, they realized they were uniquely positioned to bridge that gap. So they decided that instead of waiting for someone else to fix it, they'd be the ones to do it — and THHYE was born.</p>
+          </div>
+        </div>
         <div class="team-grid">
           <div class="team-card team-founder">
             <img class="team-photo" src="assets/team-aarav.jpg" alt="Aarav Patel" />
@@ -1431,7 +1473,7 @@
               <div class="team-name">Aarav Patel</div>
               <div class="team-role">Co-Founder</div>
               <p class="team-bio">Aarav Patel is an incoming sophomore at Dublin Jerome High School. He's an aspiring entrepreneur who builds what he pitches — AI-powered web apps, games, and the technology behind THHYE itself. Aarav leads the organization's technology, curriculum, and digital presence. He believes that seniors and students alike deserve to feel confident with the tools shaping their world, not left behind by them. Through THHYE, Aarav is learning that the best businesses start by solving a problem for someone who needs it.</p>
-              <a href="https://www.linkedin.com/in/aarav-patel-5a5110396" target="_blank" rel="noopener noreferrer" class="team-linkedin">LinkedIn ↗</a>
+              <a href="https://www.linkedin.com/in/aarav-patel-5a5110396" target="_blank" rel="noopener noreferrer" class="team-linkedin"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
             </div>
           </div>
           <div class="team-card team-founder">
@@ -1440,7 +1482,7 @@
               <div class="team-name">Aryan Kondekar</div>
               <div class="team-role">Co-Founder</div>
               <p class="team-bio">Currently Aryan is an incoming sophomore at Dublin Jerome High School. He's passionate about a career in business specifically in the overlapping of finance and technology. Aryan leads the organization's vision, partnerships, and strategic growth. He believes every student, regardless of background, should have the opportunity to explore Cybersecurity and AI, through engaging hands-on experiences. Through THHYE, Aryan aims to make a lasting educational impact in communities.</p>
-              <a href="https://www.linkedin.com/in/aryan-kondekar-037060394/" target="_blank" rel="noopener noreferrer" class="team-linkedin">LinkedIn ↗</a>
+              <a href="https://www.linkedin.com/in/aryan-kondekar-037060394/" target="_blank" rel="noopener noreferrer" class="team-linkedin"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
             </div>
           </div>
           <div class="team-card">
@@ -1449,7 +1491,7 @@
               <div class="team-name">Charan Bhaskarla</div>
               <div class="team-role">Workshop Director</div>
               <p class="team-bio">Charan is an incoming sophomore at Dublin Jerome High School with a strong interest in leadership, technology, and community service. In his current role, he coordinates cybersecurity workshops to ensure each session runs smoothly and provides an engaging learning experience. He works with team members to organize logistics, communicate with schools and community organizations, and support presenters during workshops. He also helps make a curriculum that makes online safety accessible and interactive for students of all ages. Through this role, he has developed a deeper appreciation for teamwork and the importance of empowering others with the knowledge to stay safe online.</p>
-              <a href="https://www.linkedin.com/in/sricharan-bhaskarla-a98559380/" target="_blank" rel="noopener noreferrer" class="team-linkedin">LinkedIn ↗</a>
+              <a href="https://www.linkedin.com/in/sricharan-bhaskarla-a98559380/" target="_blank" rel="noopener noreferrer" class="team-linkedin"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
             </div>
           </div>
         </div>
