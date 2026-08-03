@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact THHYE — Free Tech Workshops for Seniors</title>
+  <meta name="description" content="Get in touch with THHYE to join a free technology workshop, ask about scheduling, or volunteer with our student-led nonprofit in Delaware County and Dublin, Ohio." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://thhye.org/contact.html" />
+  <link rel="icon" type="image/png" href="THHYELogo.png" />
+  <link rel="apple-touch-icon" href="THHYELogo.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="THHYE" />
+  <meta property="og:title" content="Contact THHYE — Free Tech Workshops for Seniors" />
+  <meta property="og:description" content="Get in touch with THHYE to join a free technology workshop, ask about scheduling, or volunteer with our student-led nonprofit." />
+  <meta property="og:url" content="https://thhye.org/contact.html" />
+  <meta property="og:image" content="https://thhye.org/assets/workshop-group.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact THHYE — Free Tech Workshops for Seniors" />
+  <meta name="twitter:description" content="Get in touch with THHYE to join a free technology workshop, ask about scheduling, or volunteer with our student-led nonprofit." />
+  <meta name="twitter:image" content="https://thhye.org/assets/workshop-group.jpg" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VFDZ53EEH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('consent', 'default', {
+      analytics_storage: localStorage.getItem('thhye_cookie_consent') === 'accepted' ? 'granted' : 'denied'
+    });
+    gtag('config', 'G-8VFDZ53EEH', { anonymize_ip: true });
+  </script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">THHYE<span>.</span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#workshops">Workshops</a></li>
+      <li><a href="index.html#testimonials">Testimonials</a></li>
+      <li><a href="online-workshops.html">Online Workshops</a></li>
+      <li><a href="safety-resources.html">Safety Resources</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="partnerships.html">Partnerships</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <section style="padding-top:140px;padding-bottom:96px;padding-left:48px;padding-right:48px;">
+    <div class="section-inner">
+      <div class="section-label">Reach Out</div>
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-sub">Have questions about our workshops, want to volunteer, or need to know the schedule? We'd love to hear from you.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>We're here to help.</h3>
+          <p>Whether you're a senior looking to join a workshop, a family member helping a loved one, or someone interested in volunteering — reach out and we'll get back to you quickly.</p>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">✉️</div>
+            <div>
+              <div style="font-size:0.8rem;color:var(--gray);margin-bottom:2px;">Email</div>
+              <a href="mailto:thhye.help@gmail.com">thhye.help@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
+            <div>
+              <div style="font-size:0.8rem;color:var(--gray);margin-bottom:2px;">Locations</div>
+              Delaware County District Library Orange Branch &<br>Dublin Public Library
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon">🗓️</div>
+            <div>
+              <div style="font-size:0.8rem;color:var(--gray);margin-bottom:2px;">Sessions</div>
+              Free weekly workshops — no registration needed
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" id="fname" placeholder="Jane" />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" id="lname" placeholder="Smith" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="jane@example.com" />
+          </div>
+          <div class="form-group">
+            <label>I'm reaching out about…</label>
+            <select id="topic">
+              <option value="">Select a topic</option>
+              <option>Joining a workshop</option>
+              <option>Workshop schedule & locations</option>
+              <option>Volunteering with THHYE</option>
+              <option>General question</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea id="message" placeholder="Tell us how we can help…"></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()">Send Message →</button>
+          <div class="success-msg" id="success-msg">
+            ✅ Message sent! We'll get back to you at <strong id="confirm-email"></strong> shortly.
+          </div>
+          <p class="form-note">Your message goes directly to our team at thhye.help@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">THHYE<span>.</span></div>
+    <p class="footer-tagline">Technology Helping Hands for Youth and Elderly</p>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#workshops">Workshops</a></li>
+      <li><a href="index.html#locations">Locations</a></li>
+      <li><a href="online-workshops.html">Online Workshops</a></li>
+      <li><a href="safety-resources.html">Safety Resources</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="partnerships.html">Partnerships</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://www.linkedin.com/company/thhye-technology-helping-hands-for-youth-and-elderly/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 THHYE — Founded by Aarav Patel & Aryan Kondekar. All rights reserved.</p>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <div class="cookie-copy">
+      <strong>Help us improve THHYE.</strong>
+      We use optional cookies to understand anonymous visits, section views, and contact attempts. We do not track your contact message, name, or email in analytics.
+    </div>
+    <div class="cookie-actions">
+      <button class="cookie-btn decline" type="button" onclick="setCookieConsent(false)">Decline</button>
+      <button class="cookie-btn accept" type="button" onclick="setCookieConsent(true)">Accept</button>
+    </div>
+  </div>
+
+  <script src="common.js"></script>
+</body>
+</html>
