@@ -3,8 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>THHYE — Technology Helping Hands for Youth and Elderly</title>
+  <title>THHYE — Free Tech Workshops for Seniors in Delaware County & Dublin, OH</title>
+  <meta name="description" content="THHYE is a student-led nonprofit offering free technology workshops for seniors in Delaware County and Dublin, Ohio — smartphones, video calling, scam prevention, and online safety, in person and online." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://thhye.org/" />
+  <link rel="icon" type="image/png" href="THHYELogo.png" />
+  <link rel="apple-touch-icon" href="THHYELogo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="THHYE" />
+  <meta property="og:title" content="THHYE — Free Tech Workshops for Seniors in Delaware County & Dublin, OH" />
+  <meta property="og:description" content="Free weekly technology workshops for seniors — smartphones, video calling, scam prevention, and social media. In-person in Delaware County and Dublin, OH, plus online sessions." />
+  <meta property="og:url" content="https://thhye.org/" />
+  <meta property="og:image" content="https://thhye.org/assets/workshop-group.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="THHYE — Free Tech Workshops for Seniors in Delaware County & Dublin, OH" />
+  <meta name="twitter:description" content="Free weekly technology workshops for seniors — smartphones, video calling, scam prevention, and social media. In-person and online." />
+  <meta name="twitter:image" content="https://thhye.org/assets/workshop-group.jpg" />
+
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "THHYE — Technology Helping Hands for Youth and Elderly",
+    "url": "https://thhye.org/",
+    "description": "Student-led nonprofit offering free technology workshops for seniors — smartphones, video calling, scam prevention, and social media — in Delaware County and Dublin, Ohio, and online.",
+    "email": "thhye.help@gmail.com",
+    "sameAs": [
+      "https://www.linkedin.com/company/thhye-technology-helping-hands-for-youth-and-elderly/"
+    ],
+    "areaServed": [
+      { "@type": "City", "name": "Delaware, Ohio" },
+      { "@type": "City", "name": "Dublin, Ohio" }
+    ],
+    "founder": [
+      { "@type": "Person", "name": "Aarav Patel" },
+      { "@type": "Person", "name": "Aryan Kondekar" }
+    ]
+  }
+  </script>
 
   <!-- Google Analytics (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VFDZ53EEH"></script>
@@ -873,6 +915,136 @@
       .partnership-hero, .partnership-points { grid-template-columns: 1fr; }
     }
 
+    /* ONLINE WORKSHOPS PAGE */
+    #online-page { background: var(--white); padding-top: 140px; }
+
+    .online-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 52px;
+    }
+
+    .online-gallery img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .steps-list { list-style: none; margin: 0; padding: 0; }
+
+    .steps-list li {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .steps-list li:last-child { margin-bottom: 0; }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-copy strong {
+      display: block;
+      color: var(--navy);
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+
+    .step-copy span {
+      color: var(--gray);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    /* RESOURCES PAGE */
+    #resources-page { background: var(--white); padding-top: 140px; }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 52px;
+    }
+
+    .resource-card {
+      background: var(--light);
+      border: 1px solid rgba(26,95,168,0.1);
+      border-radius: 20px;
+      padding: 28px;
+    }
+
+    .resource-card h3 {
+      color: var(--navy);
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .resource-card p {
+      color: var(--gray);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .resource-card a {
+      color: var(--blue);
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+    }
+
+    .resource-card a:hover { color: var(--navy); }
+
+    .safety-tips {
+      margin-top: 64px;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .tip-card {
+      background: var(--white);
+      border: 1px solid rgba(26,95,168,0.1);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .tip-card .tip-icon { font-size: 1.6rem; margin-bottom: 10px; }
+
+    .tip-card h4 {
+      color: var(--navy);
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+    }
+
+    .tip-card p {
+      color: var(--gray);
+      font-size: 0.88rem;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 768px) {
+      .online-gallery, .resources-grid, .tips-grid { grid-template-columns: 1fr; }
+    }
+
     /* CONTACT PAGE */
     #contact { background: var(--white); display: none; }
 
@@ -1180,6 +1352,8 @@
       <li><a href="#" onclick="showPage('home','about')">About</a></li>
       <li><a href="#" onclick="showPage('home','workshops')">Workshops</a></li>
       <li><a href="#" onclick="showPage('home','testimonials')">Testimonials</a></li>
+      <li><a href="#" onclick="showPage('online')">Online Workshops</a></li>
+      <li><a href="#" onclick="showPage('resources')">Safety Resources</a></li>
       <li><a href="#" onclick="showPage('team')">Team</a></li>
       <li><a href="#" onclick="showPage('partnerships')">Partnerships</a></li>
       <li><a href="#" onclick="showPage('contact')" class="nav-cta">Contact Us</a></li>
@@ -1391,6 +1565,39 @@
               </div>
             </div>
           </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Today's guests are true gems who inspire hope for our future. A young generation like this will certainly prepare us well for the changes ahead. They are speaking so politely and patiently! Great kids — they must have wonderful parents and teachers. Sending lots of love and best wishes for a safe, bright, and happy future."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">M</div>
+              <div>
+                <div class="testimonial-name">Maneesha</div>
+                <div class="testimonial-school">Grandmother of Four, Workshop Attendee</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"All three of them spoke very well and explained everything clearly. We learned a lot of useful information. Vasundhara Tai, thank you for inviting today's guests — they were wonderful."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">W</div>
+              <div>
+                <div class="testimonial-name">Workshop Attendee</div>
+                <div class="testimonial-school">Online Workshop Participant</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Aryan, Aarav, and Charan deserve special appreciation. They shared excellent information and explained everything very clearly so that everyone could understand. Thank you!"</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">W</div>
+              <div>
+                <div class="testimonial-name">Workshop Attendee</div>
+                <div class="testimonial-school">Online Workshop Participant</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1551,6 +1758,153 @@
     </section>
   </div><!-- end page-partnerships -->
 
+  <!-- ===== ONLINE WORKSHOPS PAGE ===== -->
+  <div id="page-online" class="page">
+    <section id="online-page">
+      <div class="section-inner">
+        <div class="section-label">Remote Sessions</div>
+        <h2 class="section-title">Specialized Online Workshops for Seniors</h2>
+        <p class="section-sub">Not everyone can make it to a library branch. Our online workshops bring the same patient, one-on-one teaching style to seniors and their families over video call — wherever they are.</p>
+
+        <div class="online-gallery">
+          <img src="assets/online-workshop-1.png" alt="THHYE volunteers presenting an internet safety slide with helpful tips to seniors over a Google Meet online workshop" />
+          <img src="assets/online-workshop-2.png" alt="Seniors and THHYE volunteers on a Google Meet call for an online internet safety workshop" />
+        </div>
+
+        <div class="partnership-hero" style="margin-top:64px;">
+          <div class="partnership-copy">
+            <h3 class="partner-title" style="margin-bottom:16px;">Built for Seniors' Unique Needs</h3>
+            <p>
+              Online learning can feel intimidating if the tools themselves are the barrier. We design every remote session around that reality — slower pacing, plain-language instructions, and a volunteer who stays on the call until the participant feels confident, not just until the clock runs out.
+            </p>
+            <p>
+              Sessions run over Zoom or Google Meet with live screen-sharing, so participants see exactly what to tap or click in real time, and can ask questions the moment something is unclear.
+            </p>
+            <p>
+              A family caregiver is always welcome to join the call — many of our best sessions happen with a grandchild or adult child sitting alongside, reinforcing what's learned after we hang up.
+            </p>
+            <a href="#" onclick="showPage('contact')" class="btn-primary">Request an Online Session</a>
+          </div>
+
+          <div class="partner-panel">
+            <div class="partner-title">How a Session Works</div>
+            <ul class="steps-list">
+              <li>
+                <div class="step-num">1</div>
+                <div class="step-copy"><strong>We match you with a volunteer</strong><span>Based on the topic you need help with and your schedule.</span></div>
+              </li>
+              <li>
+                <div class="step-num">2</div>
+                <div class="step-copy"><strong>A quick test call</strong><span>We confirm your camera, mic, and screen-share work before the real session — no surprises.</span></div>
+              </li>
+              <li>
+                <div class="step-num">3</div>
+                <div class="step-copy"><strong>Live, one-on-one teaching</strong><span>We go step by step, repeating and slowing down as often as needed.</span></div>
+              </li>
+              <li>
+                <div class="step-num">4</div>
+                <div class="step-copy"><strong>A written recap</strong><span>You get an emailed, large-print cheat sheet of exactly what we covered.</span></div>
+              </li>
+              <li>
+                <div class="step-num">5</div>
+                <div class="step-copy"><strong>Free follow-up</strong><span>Stuck later? Message us and we'll get back on a call at no cost.</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="partnership-points">
+          <div class="partnership-point">
+            <h3>Topics We Cover</h3>
+            <p>Video calling family, texting and photos, avoiding scam calls and phishing emails, social media privacy, and setting up new devices.</p>
+          </div>
+          <div class="partnership-point">
+            <h3>No Tech Required Beforehand</h3>
+            <p>If you can answer a video call, we can teach you the rest — we walk you through downloading anything needed together.</p>
+          </div>
+          <div class="partnership-point">
+            <h3>Completely Free</h3>
+            <p>Like all THHYE programs, online sessions are free, with no obligation and no sales pitch.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div><!-- end page-online -->
+
+  <!-- ===== RESOURCES PAGE ===== -->
+  <div id="page-resources" class="page">
+    <section id="resources-page">
+      <div class="section-inner">
+        <div class="section-label">Stay Safe Online</div>
+        <h2 class="section-title">Free Internet Safety Resources</h2>
+        <p class="section-sub">Scams and phishing attempts increasingly target older adults. Here are free, trustworthy resources — plus a few quick habits — to help you or a loved one stay safe online.</p>
+
+        <div class="resources-grid">
+          <div class="resource-card">
+            <h3>AARP Fraud Watch Network</h3>
+            <p>Free scam-tracking tools, a helpline, and alerts on the latest scams targeting seniors — no AARP membership required.</p>
+            <a href="https://www.aarp.org/money/scams-fraud/" target="_blank" rel="noopener noreferrer">aarp.org/money/scams-fraud →</a>
+          </div>
+          <div class="resource-card">
+            <h3>FTC Consumer Advice</h3>
+            <p>The Federal Trade Commission's plain-language guides on recognizing and reporting scams, identity theft, and phishing.</p>
+            <a href="https://consumer.ftc.gov/features/scam-alerts" target="_blank" rel="noopener noreferrer">consumer.ftc.gov/features/scam-alerts →</a>
+          </div>
+          <div class="resource-card">
+            <h3>CISA Cybersecurity Basics</h3>
+            <p>The federal Cybersecurity & Infrastructure Security Agency's tips for strong passwords, safe browsing, and device security.</p>
+            <a href="https://www.cisa.gov/secure-our-world" target="_blank" rel="noopener noreferrer">cisa.gov/secure-our-world →</a>
+          </div>
+          <div class="resource-card">
+            <h3>National Council on Aging</h3>
+            <p>Guides written specifically for older adults on avoiding fraud and protecting personal and financial information online.</p>
+            <a href="https://www.ncoa.org/article/top-5-financial-scams-targeting-older-adults" target="_blank" rel="noopener noreferrer">ncoa.org — Scams Targeting Older Adults →</a>
+          </div>
+        </div>
+
+        <div class="safety-tips">
+          <h2 class="section-title" style="font-size:1.6rem;">Five Quick Habits That Prevent Most Scams</h2>
+          <div class="tips-grid">
+            <div class="tip-card">
+              <div class="tip-icon">📞</div>
+              <h4>Hang up and call back</h4>
+              <p>If someone calls claiming to be your bank, the IRS, or a grandchild in trouble, hang up and call the number you already know is real.</p>
+            </div>
+            <div class="tip-card">
+              <div class="tip-icon">🔗</div>
+              <h4>Don't click unexpected links</h4>
+              <p>Unexpected texts or emails about a package, a prize, or a locked account are almost always phishing. Go to the real website directly instead.</p>
+            </div>
+            <div class="tip-card">
+              <div class="tip-icon">🔑</div>
+              <h4>Use a different password everywhere</h4>
+              <p>Reusing one password means one leaked account can unlock all of them. Write passwords down in a notebook if that's easiest to remember.</p>
+            </div>
+            <div class="tip-card">
+              <div class="tip-icon">💳</div>
+              <h4>No gift cards, ever</h4>
+              <p>No real government agency, utility, or business will ever ask you to pay a bill or fine with gift cards. That request always means scam.</p>
+            </div>
+            <div class="tip-card">
+              <div class="tip-icon">👨‍👩‍👧</div>
+              <h4>Ask someone you trust</h4>
+              <p>Before sending money or personal information, pause and ask a family member or call THHYE. A second opinion catches most scams.</p>
+            </div>
+            <div class="tip-card">
+              <div class="tip-icon">🎓</div>
+              <h4>Come to a workshop</h4>
+              <p>Our free sessions walk through real scam examples so you can recognize the warning signs before they cost you anything.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:52px;">
+          <a href="#" onclick="showPage('contact')" class="btn-primary">Ask Us a Safety Question →</a>
+        </div>
+      </div>
+    </section>
+  </div><!-- end page-resources -->
+
   <!-- ===== CONTACT PAGE ===== -->
   <div id="page-contact" class="page">
     <section style="padding-top:140px;padding-bottom:96px;padding-left:48px;padding-right:48px;">
@@ -1638,6 +1992,8 @@
       <li><a href="#" onclick="showPage('home','about')">About</a></li>
       <li><a href="#" onclick="showPage('home','workshops')">Workshops</a></li>
       <li><a href="#" onclick="showPage('home','locations')">Locations</a></li>
+      <li><a href="#" onclick="showPage('online')">Online Workshops</a></li>
+      <li><a href="#" onclick="showPage('resources')">Safety Resources</a></li>
       <li><a href="#" onclick="showPage('team')">Team</a></li>
       <li><a href="#" onclick="showPage('partnerships')">Partnerships</a></li>
       <li><a href="#" onclick="showPage('contact')">Contact</a></li>
