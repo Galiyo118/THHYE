@@ -133,6 +133,27 @@
 
     .nav-cta:hover { background: #e8961f; color: var(--navy) !important; }
 
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      padding: 6px;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      margin: 5px 0;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     /* HERO */
     #home {
       min-height: 100vh;
@@ -1324,7 +1345,24 @@
     /* MOBILE */
     @media (max-width: 768px) {
       nav { padding: 16px 20px; }
-      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        background: rgba(15, 36, 68, 0.98);
+        padding: 12px 20px 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 12px 4px; }
+      .nav-cta { display: inline-block; margin-top: 8px; }
       section { padding: 64px 20px; }
       .hero-inner { grid-template-columns: 1fr; gap: 40px; }
       .hero-visual { display: none; }
@@ -1347,7 +1385,10 @@
   <!-- NAV -->
   <nav>
     <div class="nav-logo">THHYE<span>.</span></div>
-    <ul class="nav-links">
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
       <li><a href="#" onclick="showPage('home')">Home</a></li>
       <li><a href="#" onclick="showPage('home','about')">About</a></li>
       <li><a href="#" onclick="showPage('home','workshops')">Workshops</a></li>
@@ -2123,9 +2164,20 @@
       sections.forEach(section => observer.observe(section));
     }
 
+    function toggleNav() {
+      document.getElementById('nav-links').classList.toggle('open');
+      document.getElementById('nav-toggle').classList.toggle('open');
+    }
+
+    function closeNav() {
+      document.getElementById('nav-links').classList.remove('open');
+      document.getElementById('nav-toggle').classList.remove('open');
+    }
+
     function showPage(name, scrollId) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById('page-' + name).classList.add('active');
+      closeNav();
       trackEvent('page_view', { page: name });
       if (scrollId) {
         trackEvent('section_nav_click', { page: name, section: scrollId });
