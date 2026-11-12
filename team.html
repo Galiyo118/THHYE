@@ -22,9 +22,10 @@
   <meta name="twitter:title" content="Meet the Team — THHYE" />
   <meta name="twitter:description" content="Meet the student volunteers behind THHYE, a nonprofit teaching free technology workshops to seniors in Central Ohio." />
   <meta name="twitter:image" content="https://thhye.org/assets/team-founders.jpg" />
-
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="site.css" />
 
   <!-- Google Analytics (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VFDZ53EEH"></script>
@@ -39,100 +40,424 @@
   </script>
 </head>
 <body>
+<!--
+THESIS: A clean, photo-led nonprofit site that shows real students teaching real rooms; it refuses emoji/icon-tile cards and stock "AI" polish.
+OWN-WORLD: White and mist-blue pages, deep navy ink, one confident blue, sunflower yellow for highlights, green for the seniors program. Figtree throughout. Custom 64px icons: ink outline, soft offset base shape, one yellow accent.
+STORY: Visitors see students teaching kids and older adults for free, learn every workshop is built for its group, and request one or join a session.
+FIRST VIEWPORT: Left: headline with a hand-drawn yellow highlight, short lede, "Request a free workshop" + "See what we teach", three proof checks. Right: TACO AI workshop photo with the CMM seniors photo overlapping, and a handwritten-style note.
+FORM: Canon (category standard, user-chosen); craft bar Code.org and Khan Academy. Seed fecce3bb.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+  <!--
+    THHYE icon set. One grammar for every icon:
+    - 64x64 grid, ink outline 2.5px, round caps and joins
+    - one soft base shape (var(--ic-soft)) set slightly off-center behind the object
+    - one small accent (var(--ic-accent))
+    Color comes from the wrapper: color = ink, --ic-soft, --ic-accent.
+  -->
 
-  <!-- NAV -->
-  <nav>
-    <a href="index.html" class="nav-logo">THHYE<span>.</span></a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav()">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#workshops">Workshops</a></li>
-      <li><a href="index.html#testimonials">Testimonials</a></li>
-      <li><a href="online-workshops.html">Online Workshops</a></li>
-      <li><a href="safety-resources.html">Safety Resources</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="partnerships.html">Partnerships</a></li>
-      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
-    </ul>
-  </nav>
+  <!-- AI basics: friendly robot head, like the one on our workshop slides -->
+  <symbol id="i-ai" viewBox="0 0 64 64">
+    <circle cx="35" cy="37" r="22" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="15" y="22" width="34" height="26" rx="9" fill="#fff"/>
+      <path d="M32 22v-8"/>
+      <path d="M11 32v8M53 32v8"/>
+      <path d="M26 40q6 4 12 0"/>
+    </g>
+    <circle cx="32" cy="12" r="3.5" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.5"/>
+    <circle cx="25.5" cy="32" r="2.6" fill="currentColor"/>
+    <circle cx="38.5" cy="32" r="2.6" fill="currentColor"/>
+  </symbol>
 
-  <section id="team-page">
-    <div class="section-inner">
-      <div class="section-label">Our People</div>
-      <h2 class="section-title">The Team Behind THHYE</h2>
-      <p class="section-sub">Student volunteers passionate about closing the digital divide in our community.</p>
-      <div class="founders-story">
-        <img class="story-photo" src="assets/team-founders.jpg" alt="THHYE founders" />
-        <div class="story-text">
-          <h3>How THHYE Started</h3>
-          <p>Aarav and Aryan aren't just co-founders — they're friends who grew up together. It was watching their own grandparents struggle with a video call or a suspicious text message that made the problem click for them. As students who've never known a world without a smartphone, they realized they were uniquely positioned to bridge that gap. So they decided that instead of waiting for someone else to fix it, they'd be the ones to do it — and THHYE was born.</p>
+  <!-- Using AI responsibly: magnifier checking an answer -->
+  <symbol id="i-factcheck" viewBox="0 0 64 64">
+    <rect x="16" y="10" width="38" height="44" rx="8" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="10" y="8" width="32" height="40" rx="5" fill="#fff"/>
+      <path d="M17 18h18M17 25h14M17 32h9"/>
+      <circle cx="38" cy="38" r="9" fill="#fff"/>
+      <path d="M44.5 44.5l8 8"/>
+      <path d="M34 38l3 3 5-6"/>
+    </g>
+    <circle cx="52.5" cy="52.5" r="3" fill="var(--ic-accent)"/>
+  </symbol>
+
+  <!-- Making games with AI: controller -->
+  <symbol id="i-game" viewBox="0 0 64 64">
+    <ellipse cx="34" cy="38" rx="25" ry="17" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 22h28c6 0 9 5 10 12l1.5 9c.8 5-5 8-8.5 4l-5-6H20l-5 6c-3.5 4-9.3 1-8.5-4L8 34c1-7 4-12 10-12z" fill="#fff"/>
+      <path d="M20 29v8M16 33h8"/>
+    </g>
+    <circle cx="42" cy="30" r="2.8" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2"/>
+    <circle cx="47" cy="35.5" r="2.8" fill="currentColor"/>
+  </symbol>
+
+  <!-- Digital citizenship: two speech bubbles, one kind reply -->
+  <symbol id="i-citizen" viewBox="0 0 64 64">
+    <rect x="12" y="16" width="44" height="36" rx="12" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 12h28a5 5 0 0 1 5 5v12a5 5 0 0 1-5 5H19l-7 6v-6H8a5 5 0 0 1-5-5V17a5 5 0 0 1 5-5z" fill="#fff"/>
+      <path d="M56 28H34a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h12l6 5v-5h4a5 5 0 0 0 5-5V33a5 5 0 0 0-5-5z" fill="#fff"/>
+      <path d="M12 21h18M12 26h11"/>
+    </g>
+    <path d="M45 44.5c-3-2.3-6-4.4-6-7.2 0-1.8 1.4-3.1 3-3.1 1.3 0 2.3.7 3 1.8.7-1.1 1.7-1.8 3-1.8 1.6 0 3 1.3 3 3.1 0 2.8-3 4.9-6 7.2z" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  </symbol>
+
+  <!-- Online safety: padlock -->
+  <symbol id="i-lock" viewBox="0 0 64 64">
+    <circle cx="34" cy="38" r="21" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 28v-7a11 11 0 0 1 22 0v7"/>
+      <rect x="14" y="28" width="36" height="26" rx="6" fill="#fff"/>
+      <path d="M32 40v6"/>
+    </g>
+    <circle cx="32" cy="38" r="3.6" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2"/>
+  </symbol>
+
+  <!-- Smartphone basics -->
+  <symbol id="i-phone" viewBox="0 0 64 64">
+    <rect x="22" y="12" width="32" height="46" rx="10" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="16" y="6" width="28" height="50" rx="6" fill="#fff"/>
+      <path d="M27 50h6"/>
+      <rect x="21" y="16" width="7" height="7" rx="2"/>
+      <rect x="32" y="16" width="7" height="7" rx="2"/>
+      <rect x="21" y="27" width="7" height="7" rx="2"/>
+    </g>
+    <rect x="32" y="27" width="7" height="7" rx="2" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.5"/>
+    <circle cx="44" cy="8" r="4" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2"/>
+  </symbol>
+
+  <!-- Video calling: screen split between two people -->
+  <symbol id="i-video" viewBox="0 0 64 64">
+    <rect x="10" y="18" width="48" height="36" rx="10" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="5" y="12" width="48" height="34" rx="6" fill="#fff"/>
+      <path d="M29 12v34"/>
+      <circle cx="17" cy="25" r="4.5"/>
+      <path d="M10 40c1-5 4-7.5 7-7.5s6 2.5 7 7.5"/>
+      <circle cx="41" cy="25" r="4.5"/>
+      <path d="M34 40c1-5 4-7.5 7-7.5s6 2.5 7 7.5"/>
+      <path d="M22 54h14"/>
+    </g>
+    <circle cx="57" cy="14" r="4" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2"/>
+  </symbol>
+
+  <!-- Spotting scams: a message on a fishing hook -->
+  <symbol id="i-scam" viewBox="0 0 64 64">
+    <circle cx="30" cy="38" r="20" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M44 4v26a8 8 0 0 1-16 0v-4"/>
+      <path d="M28 26l-3 4"/>
+      <rect x="8" y="34" width="34" height="22" rx="4" fill="#fff"/>
+      <path d="M8 37l17 11 17-11"/>
+    </g>
+    <path d="M51 34l6 10H45z" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M51 38v2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+
+  <!-- Social media: shared photo with a like -->
+  <symbol id="i-social" viewBox="0 0 64 64">
+    <rect x="14" y="14" width="42" height="42" rx="10" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="7" y="8" width="40" height="40" rx="6" fill="#fff"/>
+      <path d="M7 38l11-11 9 9 6-6 14 14"/>
+      <circle cx="35" cy="19" r="4"/>
+    </g>
+    <path d="M50 58c-4.5-3.4-9-6.6-9-10.6 0-2.6 2-4.6 4.5-4.6 2 0 3.5 1 4.5 2.7 1-1.7 2.5-2.7 4.5-2.7 2.5 0 4.5 2 4.5 4.6 0 4-4.5 7.2-9 10.6z" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+  </symbol>
+
+  <!-- Online sessions: laptop with a live call -->
+  <symbol id="i-laptop" viewBox="0 0 64 64">
+    <rect x="12" y="14" width="44" height="36" rx="9" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="10" y="10" width="40" height="28" rx="4" fill="#fff"/>
+      <path d="M4 46h52l-4 6H8z" fill="#fff"/>
+      <circle cx="30" cy="21" r="4"/>
+      <path d="M23 32c1-4 4-6 7-6s6 2 7 6"/>
+    </g>
+    <circle cx="44" cy="15.5" r="2.6" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+
+  <!-- Library: stack of books -->
+  <symbol id="i-library" viewBox="0 0 64 64">
+    <rect x="12" y="18" width="44" height="38" rx="10" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="8" y="44" width="44" height="10" rx="3" fill="#fff"/>
+      <rect x="12" y="34" width="38" height="10" rx="3" fill="#fff"/>
+      <path d="M18 34l4-22 10 2-4 20" fill="#fff"/>
+      <path d="M44 44v10M18 44v10"/>
+    </g>
+    <rect x="34" y="14" width="9" height="20" rx="2" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.5"/>
+  </symbol>
+
+  <!-- A group of people -->
+  <symbol id="i-group" viewBox="0 0 64 64">
+    <ellipse cx="34" cy="40" rx="25" ry="18" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="16" cy="24" r="5.5" fill="#fff"/>
+      <path d="M5 46c1-8 5-12 11-12s8 3 9 6" fill="#fff"/>
+      <circle cx="48" cy="24" r="5.5" fill="#fff"/>
+      <path d="M59 46c-1-8-5-12-11-12s-8 3-9 6" fill="#fff"/>
+      <circle cx="32" cy="22" r="7" fill="#fff"/>
+      <path d="M18 54c1-10 6-16 14-16s13 6 14 16z" fill="var(--ic-accent)"/>
+    </g>
+  </symbol>
+
+  <!-- Planning a custom workshop: clipboard checklist -->
+  <symbol id="i-plan" viewBox="0 0 64 64">
+    <rect x="16" y="14" width="40" height="44" rx="10" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="10" y="10" width="36" height="46" rx="5" fill="#fff"/>
+      <path d="M17 24l3 3 5-5M17 36l3 3 5-5"/>
+      <path d="M30 25h9M30 37h9M17 48h22"/>
+    </g>
+    <rect x="20" y="5" width="16" height="9" rx="3" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.5"/>
+  </symbol>
+
+  <!-- Teaching: a presenter at a slide -->
+  <symbol id="i-teach" viewBox="0 0 64 64">
+    <rect x="10" y="12" width="46" height="34" rx="9" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="18" y="6" width="40" height="28" rx="4" fill="#fff"/>
+      <path d="M25 15h18M25 22h12"/>
+      <circle cx="12" cy="30" r="5" fill="#fff"/>
+      <path d="M3 58c0-11 4-18 9-18 3 0 5 2 7 5l9-7"/>
+      <path d="M12 58V48"/>
+    </g>
+    <circle cx="46" cy="22" r="3.4" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2"/>
+  </symbol>
+
+  <!-- Hand-off / partners: two hands meeting -->
+  <symbol id="i-partner" viewBox="0 0 64 64">
+    <circle cx="33" cy="36" r="21" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 28l10-6 10 4 8-3 10 3 10-4 8 6"/>
+      <path d="M14 22v18l12 12c2 2 5 2 6 0 2 1 5 0 5-3 2 0 4-2 3-5 2-1 3-4 1-6l-9-9" fill="#fff"/>
+      <path d="M50 22v18M32 23l-8 8c-2 2 0 5 3 4l7-5"/>
+    </g>
+    <circle cx="49" cy="48" r="4" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2"/>
+  </symbol>
+
+  <!-- Safety habits -->
+  <symbol id="i-hangup" viewBox="0 0 64 64">
+    <circle cx="34" cy="36" r="21" fill="var(--ic-soft)"/>
+    <path d="M14 10l7 0 4 11-5 4c3 7 8 12 15 15l4-5 11 4v7c0 3-2 5-5 5C26 51 9 34 9 15c0-3 2-5 5-5z" fill="#fff" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M40 10h14v14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M54 10L40 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="54" cy="10" r="3.5" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+
+  <symbol id="i-link" viewBox="0 0 64 64">
+    <circle cx="33" cy="35" r="21" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M28 36l-6 6a7 7 0 0 1-10-10l8-8a7 7 0 0 1 10 0" fill="#fff"/>
+      <path d="M36 28l6-6a7 7 0 0 1 10 10l-8 8a7 7 0 0 1-10 0" fill="#fff"/>
+      <path d="M8 56l48-48"/>
+    </g>
+    <circle cx="56" cy="8" r="3.5" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+
+  <symbol id="i-key" viewBox="0 0 64 64">
+    <circle cx="34" cy="36" r="21" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="20" cy="24" r="12" fill="#fff"/>
+      <path d="M29 32l24 24M44 47l5-5M50 53l5-5"/>
+    </g>
+    <circle cx="17" cy="21" r="3.5" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+
+  <symbol id="i-giftcard" viewBox="0 0 64 64">
+    <rect x="12" y="18" width="46" height="34" rx="9" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="6" y="14" width="44" height="30" rx="5" fill="#fff"/>
+      <path d="M22 14v30M6 26h44"/>
+      <path d="M22 26c-6-8-12-4-8 0M22 26c6-8 12-4 8 0"/>
+    </g>
+    <circle cx="48" cy="46" r="10" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.5"/>
+    <path d="M44 42l8 8M52 42l-8 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="i-ask" viewBox="0 0 64 64">
+    <ellipse cx="34" cy="40" rx="24" ry="18" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="18" cy="30" r="6" fill="#fff"/>
+      <path d="M6 56c1-9 5-14 12-14s11 5 12 14"/>
+      <circle cx="46" cy="30" r="6" fill="#fff"/>
+      <path d="M34 56c1-9 5-14 12-14s11 5 12 14"/>
+      <path d="M26 6h16a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-6l-4 4v-4h-6a4 4 0 0 1-4-4v-6a4 4 0 0 1 4-4z" fill="var(--ic-accent)"/>
+    </g>
+    <path d="M31 11.5a3 3 0 1 1 3.5 3c-.5.2-.5.6-.5 1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+
+  <!-- Contact -->
+  <symbol id="i-mail" viewBox="0 0 64 64">
+    <rect x="12" y="18" width="46" height="36" rx="9" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="6" y="14" width="46" height="32" rx="5" fill="#fff"/>
+      <path d="M6 18l23 16 23-16"/>
+    </g>
+    <circle cx="50" cy="14" r="5" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2"/>
+  </symbol>
+
+  <symbol id="i-pin" viewBox="0 0 64 64">
+    <ellipse cx="34" cy="52" rx="20" ry="7" fill="var(--ic-soft)"/>
+    <path d="M30 56C19 44 13 34 13 25a17 17 0 0 1 34 0c0 9-6 19-17 31z" fill="#fff" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="30" cy="25" r="6" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.5"/>
+  </symbol>
+
+  <symbol id="i-calendar" viewBox="0 0 64 64">
+    <rect x="14" y="16" width="44" height="40" rx="9" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="7" y="12" width="44" height="40" rx="5" fill="#fff"/>
+      <path d="M7 22h44M18 7v9M40 7v9"/>
+      <path d="M15 31h5M27 31h5M15 41h5"/>
+    </g>
+    <rect x="37" y="37" width="8" height="8" rx="2" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2"/>
+  </symbol>
+
+  <!-- Small UI marks -->
+  <symbol id="i-arrow" viewBox="0 0 24 24">
+    <path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-external" viewBox="0 0 24 24">
+    <path d="M14 5h5v5M19 5l-8 8M17 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 24 24">
+    <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 32 32">
+    <path fill="currentColor" d="M16.004 0C7.164 0 0 7.163 0 16c0 2.822.738 5.556 2.14 7.965L.052 32l8.24-2.163A15.9 15.9 0 0 0 16.004 32C24.84 32 32 24.837 32 16S24.84 0 16.004 0zm0 29.27a13.24 13.24 0 0 1-6.75-1.847l-.484-.288-4.892 1.284 1.307-4.77-.315-.49A13.24 13.24 0 0 1 2.73 16C2.73 8.66 8.664 2.73 16.004 2.73 23.34 2.73 29.27 8.66 29.27 16s-5.93 13.27-13.266 13.27zm7.27-9.94c-.398-.2-2.354-1.163-2.72-1.296-.365-.133-.63-.2-.897.2-.265.398-1.03 1.296-1.263 1.562-.232.266-.464.3-.862.1-.398-.2-1.68-.62-3.2-1.976-1.183-1.056-1.982-2.36-2.214-2.76-.232-.398-.025-.613.175-.812.18-.18.398-.464.597-.696.2-.232.265-.398.398-.663.133-.266.066-.498-.033-.696-.1-.2-.897-2.164-1.23-2.963-.324-.78-.653-.675-.897-.688l-.764-.013c-.265 0-.696.1-1.06.498-.365.398-1.395 1.363-1.395 3.326s1.428 3.86 1.627 4.127c.2.266 2.81 4.29 6.81 6.017.951.41 1.694.655 2.273.838.955.304 1.824.261 2.51.158.766-.114 2.354-.962 2.686-1.892.332-.93.332-1.727.232-1.892-.1-.166-.365-.266-.763-.465z"/>
+  </symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/>
+  </symbol>
+</svg>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="assets/thhye-mark.png" alt="" />
+        <span><strong>THHYE</strong><small>Technology Helping Hands for Youth and Elderly</small></span>
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><span></span>Menu</button>
+      <ul class="nav" id="nav">
+        <li><a href="index.html">Home</a></li><li><a href="online-workshops.html">Online</a></li><li><a href="safety-resources.html">Safety tips</a></li><li><a href="team.html" aria-current="page">Team</a></li><li><a href="partnerships.html">Partners</a></li>
+        <li><a class="btn btn-primary" href="contact.html">Request a workshop</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-head">
+      <div class="wrap">
+        <h1>The students behind THHYE.</h1>
+        <p class="lede">High schoolers from Dublin, Ohio who grew up with smartphones and decided to share what they know.</p>
+      </div>
+    </section>
+
+    <section class="section tint">
+      <div class="wrap split">
+        <img src="assets/team-founders.jpg" alt="THHYE co-founders Aarav Patel and Aryan Kondekar" style="border-radius:22px;width:100%;aspect-ratio:4/3;object-fit:cover" />
+        <div class="prose">
+          <h2>How it started</h2>
+          <p>Aarav and Aryan aren't just co-founders. They're friends who grew up together. Watching their own grandparents struggle with a video call or a suspicious text message is what made the problem click.</p>
+          <p>As students who've never known a world without a smartphone, they realized they were in a good position to close that gap. Instead of waiting for someone else to fix it, they started THHYE.</p>
         </div>
       </div>
-      <div class="team-grid">
-        <div class="team-card team-founder">
-          <img class="team-photo" src="assets/team-aarav.jpg" alt="Aarav Patel" />
-          <div class="team-info">
-            <div class="team-name">Aarav Patel</div>
-            <div class="team-role">Co-Founder</div>
-            <p class="team-bio">Aarav Patel is an incoming sophomore at Dublin Jerome High School. He's an aspiring entrepreneur who builds what he pitches — AI-powered web apps, games, and the technology behind THHYE itself. Aarav leads the organization's technology, curriculum, and digital presence. He believes that seniors and students alike deserve to feel confident with the tools shaping their world, not left behind by them. Through THHYE, Aarav is learning that the best businesses start by solving a problem for someone who needs it.</p>
-            <a href="https://www.linkedin.com/in/aarav-patel-5a5110396" target="_blank" rel="noopener noreferrer" class="team-linkedin"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
-          </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="people">
+          <article class="person">
+            <img src="assets/team-aarav.jpg" alt="Aarav Patel" />
+            <h3>Aarav Patel</h3>
+            <div class="role">Co-founder</div>
+            <p>A sophomore at Dublin Jerome High School and an aspiring entrepreneur who builds what he pitches: AI-powered web apps, games, and the technology behind THHYE itself. Aarav leads THHYE's technology, curriculum, and online presence.</p>
+            <a class="text-link" href="https://www.linkedin.com/in/aarav-patel-5a5110396" target="_blank" rel="noopener noreferrer"><svg class="ui" aria-hidden="true"><use href="#i-linkedin"/></svg> LinkedIn</a>
+          </article>
+          <article class="person">
+            <img src="assets/team-aryan.jpg" alt="Aryan Kondekar" />
+            <h3>Aryan Kondekar</h3>
+            <div class="role">Co-founder</div>
+            <p>A sophomore at Dublin Jerome High School interested in where finance and technology meet. Aryan leads THHYE's vision, partnerships, and growth, and believes every student should get hands-on experience with cybersecurity and AI.</p>
+            <a class="text-link" href="https://www.linkedin.com/in/aryan-kondekar-037060394/" target="_blank" rel="noopener noreferrer"><svg class="ui" aria-hidden="true"><use href="#i-linkedin"/></svg> LinkedIn</a>
+          </article>
+          <article class="person">
+            <img src="assets/team-charan.jpg" alt="Charan Bhaskarla" />
+            <h3>Charan Bhaskarla</h3>
+            <div class="role">Workshop director</div>
+            <p>A sophomore at Dublin Jerome High School who coordinates THHYE's cybersecurity workshops: logistics, communication with schools and community groups, and support for presenters. He also helps write curriculum that makes online safety interactive for every age.</p>
+            <a class="text-link" href="https://www.linkedin.com/in/sricharan-bhaskarla-a98559380/" target="_blank" rel="noopener noreferrer"><svg class="ui" aria-hidden="true"><use href="#i-linkedin"/></svg> LinkedIn</a>
+          </article>
         </div>
-        <div class="team-card team-founder">
-          <img class="team-photo" src="assets/team-aryan.jpg" alt="Aryan Kondekar" />
-          <div class="team-info">
-            <div class="team-name">Aryan Kondekar</div>
-            <div class="team-role">Co-Founder</div>
-            <p class="team-bio">Currently Aryan is an incoming sophomore at Dublin Jerome High School. He's passionate about a career in business specifically in the overlapping of finance and technology. Aryan leads the organization's vision, partnerships, and strategic growth. He believes every student, regardless of background, should have the opportunity to explore Cybersecurity and AI, through engaging hands-on experiences. Through THHYE, Aryan aims to make a lasting educational impact in communities.</p>
-            <a href="https://www.linkedin.com/in/aryan-kondekar-037060394/" target="_blank" rel="noopener noreferrer" class="team-linkedin"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
-          </div>
+      </div>
+    </section>
+
+    <section class="section tint closing">
+      <div class="wrap">
+        <div>
+          <h2>Want to volunteer with us?</h2>
+          <p class="lede">We're always looking for students who are patient, curious, and like explaining things.</p>
         </div>
-        <div class="team-card">
-          <img class="team-photo" src="assets/team-charan.jpg" alt="Charan Bhaskarla" />
-          <div class="team-info">
-            <div class="team-name">Charan Bhaskarla</div>
-            <div class="team-role">Workshop Director</div>
-            <p class="team-bio">Charan is an incoming sophomore at Dublin Jerome High School with a strong interest in leadership, technology, and community service. In his current role, he coordinates cybersecurity workshops to ensure each session runs smoothly and provides an engaging learning experience. He works with team members to organize logistics, communicate with schools and community organizations, and support presenters during workshops. He also helps make a curriculum that makes online safety accessible and interactive for students of all ages. Through this role, he has developed a deeper appreciation for teamwork and the importance of empowering others with the knowledge to stay safe online.</p>
-            <a href="https://www.linkedin.com/in/sricharan-bhaskarla-a98559380/" target="_blank" rel="noopener noreferrer" class="team-linkedin"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
-          </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="contact.html">Get in touch <svg class="ui" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <a class="brand" href="index.html">
+            <img src="assets/thhye-mark.png" alt="" />
+            <span><strong>THHYE</strong><small>Technology Helping Hands for Youth and Elderly</small></span>
+          </a>
+          <p>A student-led nonprofit teaching free technology workshops to kids and older adults in Central Ohio.</p>
+        </div>
+        <div>
+          <h4>Workshops</h4>
+          <ul>
+            <li><a href="index.html#programs">What we teach</a></li>
+            <li><a href="index.html#custom">Custom workshops</a></li>
+            <li><a href="online-workshops.html">Online sessions</a></li>
+            <li><a href="safety-resources.html">Safety tips</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>THHYE</h4>
+          <ul>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="partnerships.html">Partners</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://www.linkedin.com/company/thhye-technology-helping-hands-for-youth-and-elderly/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bottom">
+        <span>© 2026 THHYE. Founded by Aarav Patel and Aryan Kondekar.</span>
+        <a href="mailto:thhye.help@gmail.com">thhye.help@gmail.com</a>
       </div>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo">THHYE<span>.</span></div>
-    <p class="footer-tagline">Technology Helping Hands for Youth and Elderly</p>
-    <ul class="footer-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#workshops">Workshops</a></li>
-      <li><a href="index.html#locations">Locations</a></li>
-      <li><a href="online-workshops.html">Online Workshops</a></li>
-      <li><a href="safety-resources.html">Safety Resources</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="partnerships.html">Partnerships</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="https://www.linkedin.com/company/thhye-technology-helping-hands-for-youth-and-elderly/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-    </ul>
-    <p class="footer-copy">© 2025 THHYE — Founded by Aarav Patel & Aryan Kondekar. All rights reserved.</p>
   </footer>
-
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
     <div class="cookie-copy">
       <strong>Help us improve THHYE.</strong>
-      We use optional cookies to understand anonymous visits, section views, and contact attempts. We do not track your contact message, name, or email in analytics.
+      We use optional cookies to understand anonymous visits, section views, and contact attempts. We never track your message, name, or email.
     </div>
     <div class="cookie-actions">
       <button class="cookie-btn decline" type="button" onclick="setCookieConsent(false)">Decline</button>
       <button class="cookie-btn accept" type="button" onclick="setCookieConsent(true)">Accept</button>
     </div>
   </div>
-
   <script src="common.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>

@@ -22,9 +22,10 @@
   <meta name="twitter:title" content="Partnerships — THHYE, GMOCO, CMM & TACO" />
   <meta name="twitter:description" content="THHYE partners with GMOCO's YUVA Connect team, the Columbus Maharashtra Mandal, and the Telugu Association of Central Ohio to expand free technology education through youth-led community service." />
   <meta name="twitter:image" content="https://thhye.org/assets/workshop-group.jpg" />
-
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="site.css" />
 
   <!-- Google Analytics (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8VFDZ53EEH"></script>
@@ -39,205 +40,430 @@
   </script>
 </head>
 <body>
+<!--
+THESIS: A clean, photo-led nonprofit site that shows real students teaching real rooms; it refuses emoji/icon-tile cards and stock "AI" polish.
+OWN-WORLD: White and mist-blue pages, deep navy ink, one confident blue, sunflower yellow for highlights, green for the seniors program. Figtree throughout. Custom 64px icons: ink outline, soft offset base shape, one yellow accent.
+STORY: Visitors see students teaching kids and older adults for free, learn every workshop is built for its group, and request one or join a session.
+FIRST VIEWPORT: Left: headline with a hand-drawn yellow highlight, short lede, "Request a free workshop" + "See what we teach", three proof checks. Right: TACO AI workshop photo with the CMM seniors photo overlapping, and a handwritten-style note.
+FORM: Canon (category standard, user-chosen); craft bar Code.org and Khan Academy. Seed fecce3bb.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+  <!--
+    THHYE icon set. One grammar for every icon:
+    - 64x64 grid, ink outline 2.5px, round caps and joins
+    - one soft base shape (var(--ic-soft)) set slightly off-center behind the object
+    - one small accent (var(--ic-accent))
+    Color comes from the wrapper: color = ink, --ic-soft, --ic-accent.
+  -->
 
-  <!-- NAV -->
-  <nav>
-    <a href="index.html" class="nav-logo">THHYE<span>.</span></a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav()">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#workshops">Workshops</a></li>
-      <li><a href="index.html#testimonials">Testimonials</a></li>
-      <li><a href="online-workshops.html">Online Workshops</a></li>
-      <li><a href="safety-resources.html">Safety Resources</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="partnerships.html">Partnerships</a></li>
-      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
-    </ul>
-  </nav>
+  <!-- AI basics: friendly robot head, like the one on our workshop slides -->
+  <symbol id="i-ai" viewBox="0 0 64 64">
+    <circle cx="35" cy="37" r="22" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="15" y="22" width="34" height="26" rx="9" fill="#fff"/>
+      <path d="M32 22v-8"/>
+      <path d="M11 32v8M53 32v8"/>
+      <path d="M26 40q6 4 12 0"/>
+    </g>
+    <circle cx="32" cy="12" r="3.5" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.5"/>
+    <circle cx="25.5" cy="32" r="2.6" fill="currentColor"/>
+    <circle cx="38.5" cy="32" r="2.6" fill="currentColor"/>
+  </symbol>
 
-  <section id="partnerships-page">
-    <div class="section-inner">
-      <div class="section-label">Community Partners</div>
-      <h2 class="section-title">Our Community Partners</h2>
-      <p class="section-sub">THHYE is proud to partner with organizations across Central Ohio to expand free technology education through youth-led community service.</p>
+  <!-- Using AI responsibly: magnifier checking an answer -->
+  <symbol id="i-factcheck" viewBox="0 0 64 64">
+    <rect x="16" y="10" width="38" height="44" rx="8" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="10" y="8" width="32" height="40" rx="5" fill="#fff"/>
+      <path d="M17 18h18M17 25h14M17 32h9"/>
+      <circle cx="38" cy="38" r="9" fill="#fff"/>
+      <path d="M44.5 44.5l8 8"/>
+      <path d="M34 38l3 3 5-6"/>
+    </g>
+    <circle cx="52.5" cy="52.5" r="3" fill="var(--ic-accent)"/>
+  </symbol>
 
-      <h3 class="partner-subtitle">GMOCO</h3>
-      <div class="partnership-hero">
-        <div class="partnership-copy">
-          <p>
-            Through this partnership, THHYE works alongside GMOCO's YUVA Connect team to bring practical, welcoming technology workshops to more community members.
-          </p>
-          <p>
-            YUVA Connect's focus on youth engagement aligns closely with THHYE's mission: students helping others build confidence with everyday digital tools.
-          </p>
-          <p>
-            Together, we can reach more families, support more learners, and create more opportunities for young volunteers to serve with purpose.
-          </p>
-          <a href="contact.html" class="btn-primary">Partner With Us</a>
+  <!-- Making games with AI: controller -->
+  <symbol id="i-game" viewBox="0 0 64 64">
+    <ellipse cx="34" cy="38" rx="25" ry="17" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 22h28c6 0 9 5 10 12l1.5 9c.8 5-5 8-8.5 4l-5-6H20l-5 6c-3.5 4-9.3 1-8.5-4L8 34c1-7 4-12 10-12z" fill="#fff"/>
+      <path d="M20 29v8M16 33h8"/>
+    </g>
+    <circle cx="42" cy="30" r="2.8" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2"/>
+    <circle cx="47" cy="35.5" r="2.8" fill="currentColor"/>
+  </symbol>
+
+  <!-- Digital citizenship: two speech bubbles, one kind reply -->
+  <symbol id="i-citizen" viewBox="0 0 64 64">
+    <rect x="12" y="16" width="44" height="36" rx="12" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 12h28a5 5 0 0 1 5 5v12a5 5 0 0 1-5 5H19l-7 6v-6H8a5 5 0 0 1-5-5V17a5 5 0 0 1 5-5z" fill="#fff"/>
+      <path d="M56 28H34a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h12l6 5v-5h4a5 5 0 0 0 5-5V33a5 5 0 0 0-5-5z" fill="#fff"/>
+      <path d="M12 21h18M12 26h11"/>
+    </g>
+    <path d="M45 44.5c-3-2.3-6-4.4-6-7.2 0-1.8 1.4-3.1 3-3.1 1.3 0 2.3.7 3 1.8.7-1.1 1.7-1.8 3-1.8 1.6 0 3 1.3 3 3.1 0 2.8-3 4.9-6 7.2z" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  </symbol>
+
+  <!-- Online safety: padlock -->
+  <symbol id="i-lock" viewBox="0 0 64 64">
+    <circle cx="34" cy="38" r="21" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 28v-7a11 11 0 0 1 22 0v7"/>
+      <rect x="14" y="28" width="36" height="26" rx="6" fill="#fff"/>
+      <path d="M32 40v6"/>
+    </g>
+    <circle cx="32" cy="38" r="3.6" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2"/>
+  </symbol>
+
+  <!-- Smartphone basics -->
+  <symbol id="i-phone" viewBox="0 0 64 64">
+    <rect x="22" y="12" width="32" height="46" rx="10" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="16" y="6" width="28" height="50" rx="6" fill="#fff"/>
+      <path d="M27 50h6"/>
+      <rect x="21" y="16" width="7" height="7" rx="2"/>
+      <rect x="32" y="16" width="7" height="7" rx="2"/>
+      <rect x="21" y="27" width="7" height="7" rx="2"/>
+    </g>
+    <rect x="32" y="27" width="7" height="7" rx="2" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.5"/>
+    <circle cx="44" cy="8" r="4" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2"/>
+  </symbol>
+
+  <!-- Video calling: screen split between two people -->
+  <symbol id="i-video" viewBox="0 0 64 64">
+    <rect x="10" y="18" width="48" height="36" rx="10" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="5" y="12" width="48" height="34" rx="6" fill="#fff"/>
+      <path d="M29 12v34"/>
+      <circle cx="17" cy="25" r="4.5"/>
+      <path d="M10 40c1-5 4-7.5 7-7.5s6 2.5 7 7.5"/>
+      <circle cx="41" cy="25" r="4.5"/>
+      <path d="M34 40c1-5 4-7.5 7-7.5s6 2.5 7 7.5"/>
+      <path d="M22 54h14"/>
+    </g>
+    <circle cx="57" cy="14" r="4" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2"/>
+  </symbol>
+
+  <!-- Spotting scams: a message on a fishing hook -->
+  <symbol id="i-scam" viewBox="0 0 64 64">
+    <circle cx="30" cy="38" r="20" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M44 4v26a8 8 0 0 1-16 0v-4"/>
+      <path d="M28 26l-3 4"/>
+      <rect x="8" y="34" width="34" height="22" rx="4" fill="#fff"/>
+      <path d="M8 37l17 11 17-11"/>
+    </g>
+    <path d="M51 34l6 10H45z" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+    <path d="M51 38v2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+
+  <!-- Social media: shared photo with a like -->
+  <symbol id="i-social" viewBox="0 0 64 64">
+    <rect x="14" y="14" width="42" height="42" rx="10" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="7" y="8" width="40" height="40" rx="6" fill="#fff"/>
+      <path d="M7 38l11-11 9 9 6-6 14 14"/>
+      <circle cx="35" cy="19" r="4"/>
+    </g>
+    <path d="M50 58c-4.5-3.4-9-6.6-9-10.6 0-2.6 2-4.6 4.5-4.6 2 0 3.5 1 4.5 2.7 1-1.7 2.5-2.7 4.5-2.7 2.5 0 4.5 2 4.5 4.6 0 4-4.5 7.2-9 10.6z" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+  </symbol>
+
+  <!-- Online sessions: laptop with a live call -->
+  <symbol id="i-laptop" viewBox="0 0 64 64">
+    <rect x="12" y="14" width="44" height="36" rx="9" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="10" y="10" width="40" height="28" rx="4" fill="#fff"/>
+      <path d="M4 46h52l-4 6H8z" fill="#fff"/>
+      <circle cx="30" cy="21" r="4"/>
+      <path d="M23 32c1-4 4-6 7-6s6 2 7 6"/>
+    </g>
+    <circle cx="44" cy="15.5" r="2.6" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+
+  <!-- Library: stack of books -->
+  <symbol id="i-library" viewBox="0 0 64 64">
+    <rect x="12" y="18" width="44" height="38" rx="10" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="8" y="44" width="44" height="10" rx="3" fill="#fff"/>
+      <rect x="12" y="34" width="38" height="10" rx="3" fill="#fff"/>
+      <path d="M18 34l4-22 10 2-4 20" fill="#fff"/>
+      <path d="M44 44v10M18 44v10"/>
+    </g>
+    <rect x="34" y="14" width="9" height="20" rx="2" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.5"/>
+  </symbol>
+
+  <!-- A group of people -->
+  <symbol id="i-group" viewBox="0 0 64 64">
+    <ellipse cx="34" cy="40" rx="25" ry="18" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="16" cy="24" r="5.5" fill="#fff"/>
+      <path d="M5 46c1-8 5-12 11-12s8 3 9 6" fill="#fff"/>
+      <circle cx="48" cy="24" r="5.5" fill="#fff"/>
+      <path d="M59 46c-1-8-5-12-11-12s-8 3-9 6" fill="#fff"/>
+      <circle cx="32" cy="22" r="7" fill="#fff"/>
+      <path d="M18 54c1-10 6-16 14-16s13 6 14 16z" fill="var(--ic-accent)"/>
+    </g>
+  </symbol>
+
+  <!-- Planning a custom workshop: clipboard checklist -->
+  <symbol id="i-plan" viewBox="0 0 64 64">
+    <rect x="16" y="14" width="40" height="44" rx="10" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="10" y="10" width="36" height="46" rx="5" fill="#fff"/>
+      <path d="M17 24l3 3 5-5M17 36l3 3 5-5"/>
+      <path d="M30 25h9M30 37h9M17 48h22"/>
+    </g>
+    <rect x="20" y="5" width="16" height="9" rx="3" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.5"/>
+  </symbol>
+
+  <!-- Teaching: a presenter at a slide -->
+  <symbol id="i-teach" viewBox="0 0 64 64">
+    <rect x="10" y="12" width="46" height="34" rx="9" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="18" y="6" width="40" height="28" rx="4" fill="#fff"/>
+      <path d="M25 15h18M25 22h12"/>
+      <circle cx="12" cy="30" r="5" fill="#fff"/>
+      <path d="M3 58c0-11 4-18 9-18 3 0 5 2 7 5l9-7"/>
+      <path d="M12 58V48"/>
+    </g>
+    <circle cx="46" cy="22" r="3.4" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2"/>
+  </symbol>
+
+  <!-- Hand-off / partners: two hands meeting -->
+  <symbol id="i-partner" viewBox="0 0 64 64">
+    <circle cx="33" cy="36" r="21" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 28l10-6 10 4 8-3 10 3 10-4 8 6"/>
+      <path d="M14 22v18l12 12c2 2 5 2 6 0 2 1 5 0 5-3 2 0 4-2 3-5 2-1 3-4 1-6l-9-9" fill="#fff"/>
+      <path d="M50 22v18M32 23l-8 8c-2 2 0 5 3 4l7-5"/>
+    </g>
+    <circle cx="49" cy="48" r="4" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2"/>
+  </symbol>
+
+  <!-- Safety habits -->
+  <symbol id="i-hangup" viewBox="0 0 64 64">
+    <circle cx="34" cy="36" r="21" fill="var(--ic-soft)"/>
+    <path d="M14 10l7 0 4 11-5 4c3 7 8 12 15 15l4-5 11 4v7c0 3-2 5-5 5C26 51 9 34 9 15c0-3 2-5 5-5z" fill="#fff" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M40 10h14v14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M54 10L40 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="54" cy="10" r="3.5" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+
+  <symbol id="i-link" viewBox="0 0 64 64">
+    <circle cx="33" cy="35" r="21" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M28 36l-6 6a7 7 0 0 1-10-10l8-8a7 7 0 0 1 10 0" fill="#fff"/>
+      <path d="M36 28l6-6a7 7 0 0 1 10 10l-8 8a7 7 0 0 1-10 0" fill="#fff"/>
+      <path d="M8 56l48-48"/>
+    </g>
+    <circle cx="56" cy="8" r="3.5" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+
+  <symbol id="i-key" viewBox="0 0 64 64">
+    <circle cx="34" cy="36" r="21" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="20" cy="24" r="12" fill="#fff"/>
+      <path d="M29 32l24 24M44 47l5-5M50 53l5-5"/>
+    </g>
+    <circle cx="17" cy="21" r="3.5" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+
+  <symbol id="i-giftcard" viewBox="0 0 64 64">
+    <rect x="12" y="18" width="46" height="34" rx="9" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="6" y="14" width="44" height="30" rx="5" fill="#fff"/>
+      <path d="M22 14v30M6 26h44"/>
+      <path d="M22 26c-6-8-12-4-8 0M22 26c6-8 12-4 8 0"/>
+    </g>
+    <circle cx="48" cy="46" r="10" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.5"/>
+    <path d="M44 42l8 8M52 42l-8 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="i-ask" viewBox="0 0 64 64">
+    <ellipse cx="34" cy="40" rx="24" ry="18" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="18" cy="30" r="6" fill="#fff"/>
+      <path d="M6 56c1-9 5-14 12-14s11 5 12 14"/>
+      <circle cx="46" cy="30" r="6" fill="#fff"/>
+      <path d="M34 56c1-9 5-14 12-14s11 5 12 14"/>
+      <path d="M26 6h16a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-6l-4 4v-4h-6a4 4 0 0 1-4-4v-6a4 4 0 0 1 4-4z" fill="var(--ic-accent)"/>
+    </g>
+    <path d="M31 11.5a3 3 0 1 1 3.5 3c-.5.2-.5.6-.5 1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+
+  <!-- Contact -->
+  <symbol id="i-mail" viewBox="0 0 64 64">
+    <rect x="12" y="18" width="46" height="36" rx="9" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="6" y="14" width="46" height="32" rx="5" fill="#fff"/>
+      <path d="M6 18l23 16 23-16"/>
+    </g>
+    <circle cx="50" cy="14" r="5" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2"/>
+  </symbol>
+
+  <symbol id="i-pin" viewBox="0 0 64 64">
+    <ellipse cx="34" cy="52" rx="20" ry="7" fill="var(--ic-soft)"/>
+    <path d="M30 56C19 44 13 34 13 25a17 17 0 0 1 34 0c0 9-6 19-17 31z" fill="#fff" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="30" cy="25" r="6" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.5"/>
+  </symbol>
+
+  <symbol id="i-calendar" viewBox="0 0 64 64">
+    <rect x="14" y="16" width="44" height="40" rx="9" fill="var(--ic-soft)"/>
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="7" y="12" width="44" height="40" rx="5" fill="#fff"/>
+      <path d="M7 22h44M18 7v9M40 7v9"/>
+      <path d="M15 31h5M27 31h5M15 41h5"/>
+    </g>
+    <rect x="37" y="37" width="8" height="8" rx="2" fill="var(--ic-accent)" stroke="currentColor" stroke-width="2.2"/>
+  </symbol>
+
+  <!-- Small UI marks -->
+  <symbol id="i-arrow" viewBox="0 0 24 24">
+    <path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-external" viewBox="0 0 24 24">
+    <path d="M14 5h5v5M19 5l-8 8M17 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 24 24">
+    <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 32 32">
+    <path fill="currentColor" d="M16.004 0C7.164 0 0 7.163 0 16c0 2.822.738 5.556 2.14 7.965L.052 32l8.24-2.163A15.9 15.9 0 0 0 16.004 32C24.84 32 32 24.837 32 16S24.84 0 16.004 0zm0 29.27a13.24 13.24 0 0 1-6.75-1.847l-.484-.288-4.892 1.284 1.307-4.77-.315-.49A13.24 13.24 0 0 1 2.73 16C2.73 8.66 8.664 2.73 16.004 2.73 23.34 2.73 29.27 8.66 29.27 16s-5.93 13.27-13.266 13.27zm7.27-9.94c-.398-.2-2.354-1.163-2.72-1.296-.365-.133-.63-.2-.897.2-.265.398-1.03 1.296-1.263 1.562-.232.266-.464.3-.862.1-.398-.2-1.68-.62-3.2-1.976-1.183-1.056-1.982-2.36-2.214-2.76-.232-.398-.025-.613.175-.812.18-.18.398-.464.597-.696.2-.232.265-.398.398-.663.133-.266.066-.498-.033-.696-.1-.2-.897-2.164-1.23-2.963-.324-.78-.653-.675-.897-.688l-.764-.013c-.265 0-.696.1-1.06.498-.365.398-1.395 1.363-1.395 3.326s1.428 3.86 1.627 4.127c.2.266 2.81 4.29 6.81 6.017.951.41 1.694.655 2.273.838.955.304 1.824.261 2.51.158.766-.114 2.354-.962 2.686-1.892.332-.93.332-1.727.232-1.892-.1-.166-.365-.266-.763-.465z"/>
+  </symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.86-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/>
+  </symbol>
+</svg>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="assets/thhye-mark.png" alt="" />
+        <span><strong>THHYE</strong><small>Technology Helping Hands for Youth and Elderly</small></span>
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><span></span>Menu</button>
+      <ul class="nav" id="nav">
+        <li><a href="index.html">Home</a></li><li><a href="online-workshops.html">Online</a></li><li><a href="safety-resources.html">Safety tips</a></li><li><a href="team.html">Team</a></li><li><a href="partnerships.html" aria-current="page">Partners</a></li>
+        <li><a class="btn btn-primary" href="contact.html">Request a workshop</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-head with-art">
+      <div class="wrap">
+        <div>
+          <h1>Our community partners.</h1>
+          <p class="lede">We teach where people already gather. These organizations open their doors so our volunteers can bring free workshops to their members.</p>
         </div>
+        <svg class="icon head-art" aria-hidden="true"><use href="#i-partner"/></svg>
+      </div>
+    </section>
 
-        <div class="partner-panel">
-          <div class="partner-mark" aria-label="GMOCO YUVA Connect">
-            <img class="partner-logo-img" src="assets/gmoco-logo.png" alt="GMOCO — Gujarati Mandal of Central Ohio logo" />
-            <div class="partner-logo-sub">YUVA Connect Team</div>
+    <section class="partner">
+      <div class="wrap">
+        <div class="partner-top">
+          <div class="partner-logo"><img src="assets/taco-logo.png" alt="Telugu Association of Central Ohio logo" /></div>
+          <div>
+            <h2>Telugu Association of Central Ohio</h2>
+            <p class="since">TACO, serving the Central Ohio Telugu community since 1984</p>
+            <div class="prose"><p>TACO has spent decades bringing the Central Ohio Telugu community together through cultural events, education, and service, which makes it a natural home for hands-on learning.</p><p>Our first workshop with TACO introduced kids to artificial intelligence: what AI is, how it works, and how to use it responsibly, including its limits like false information and replacing your own thinking.</p></div>
+            <ul class="did"><li><svg class="ui" aria-hidden="true"><use href="#i-check"/></svg><span><strong>AI literacy for kids.</strong> What AI is, where it helps, and where to think critically.</span></li><li><svg class="ui" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Interactive.</strong> Think-pair-share questions kept every student involved.</span></li><li><svg class="ui" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Built for the room.</strong> Examples and activities chosen for this age group.</span></li></ul>
           </div>
-          <div class="partner-title">Youth Service, Shared Impact</div>
-          <p class="partner-detail">
-            GMOCO's YUVA Connect team helps strengthen THHYE's community outreach by connecting motivated youth volunteers with meaningful service opportunities.
-          </p>
         </div>
+        <div class="photo-row four"><img src="assets/taco-photo-3.jpg" alt="THHYE volunteers presenting a starter question about AI at TACO" loading="lazy" /><img src="assets/taco-photo-4.jpg" alt="Volunteers explaining the cons of AI to TACO students" loading="lazy" /><img src="assets/taco-photo-1.jpg" alt="A THHYE volunteer leading the AI workshop" loading="lazy" /><img src="assets/taco-photo-2.jpg" alt="Students at the TACO AI workshop" loading="lazy" /></div>
       </div>
-
-      <div class="partnership-points">
-        <div class="partnership-point">
-          <h3>Volunteer Support</h3>
-          <p>Connecting student volunteers with workshops where they can teach, guide, and serve.</p>
-        </div>
-        <div class="partnership-point">
-          <h3>Community Reach</h3>
-          <p>Helping THHYE bring technology education to more local residents and families.</p>
-        </div>
-        <div class="partnership-point">
-          <h3>Youth Leadership</h3>
-          <p>Creating real opportunities for young people to lead with patience, empathy, and skill.</p>
-        </div>
-      </div>
-
-      <div class="partner-divider"></div>
-
-      <h3 class="partner-subtitle">Columbus Maharashtra Mandal</h3>
-      <div class="partnership-hero">
-        <div class="partnership-copy">
-          <p>
-            THHYE partners with the Columbus Maharashtra Mandal (CMM) to bring free technology workshops directly to its community, hosted at CMM events and gatherings across Central Ohio.
-          </p>
-          <p>
-            CMM's mission to preserve culture and bring families together gives THHYE volunteers a welcoming space to teach digital skills to members of all ages, from kids learning new tools to seniors gaining confidence online.
-          </p>
-          <p>
-            This partnership has already brought hands-on sessions like "Tech Made Simple" to CMM families, with more workshops planned together.
-          </p>
-          <a href="contact.html" class="btn-primary">Partner With Us</a>
-        </div>
-
-        <div class="partner-panel">
-          <div class="partner-mark" aria-label="Columbus Maharashtra Mandal">
-            <img class="partner-logo-img" src="assets/cmm-logo.png" alt="Columbus Maharashtra Mandal logo" />
-            <div class="partner-logo-sub">Community Partner</div>
+    </section>
+    <section class="partner">
+      <div class="wrap">
+        <div class="partner-top">
+          <div class="partner-logo"><img src="assets/cmm-logo.png" alt="Columbus Maharashtra Mandal logo" /></div>
+          <div>
+            <h2>Columbus Maharashtra Mandal</h2>
+            <p class="since">CMM, bringing Maharashtrian families together across Central Ohio</p>
+            <div class="prose"><p>We bring free technology workshops to CMM events and gatherings. CMM's focus on culture and family gives our volunteers a welcoming space to teach members of every age.</p><p>Together we've run sessions like "Tech Made Simple" for CMM families, from kids learning new tools to grandparents gaining confidence online, with more planned.</p></div>
+            <ul class="did"><li><svg class="ui" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Workshops at CMM events.</strong> Hands-on sessions brought straight to members.</span></li><li><svg class="ui" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Whole-family learning.</strong> From kids to grandparents in one room.</span></li><li><svg class="ui" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Cultural connection.</strong> Serving a community rooted in shared language and tradition.</span></li></ul>
           </div>
-          <div class="partner-title">Culture, Community, and Connection</div>
-          <p class="partner-detail">
-            CMM strengthens THHYE's reach into the Central Ohio Maharashtrian community, opening the door for volunteers to serve families at CMM events.
-          </p>
         </div>
+        <div class="photo-row even"><img src="assets/cmm-photo-1.jpg" alt="THHYE volunteers leading a digital game workshop for CMM kids" loading="lazy" /><img src="assets/cmm-photo-2.jpg" alt="CMM community members with THHYE after a Tech Made Simple workshop" loading="lazy" /></div>
       </div>
-
-      <div class="partnership-points">
-        <div class="partnership-point">
-          <h3>Workshops at CMM Events</h3>
-          <p>Bringing THHYE's hands-on tech sessions directly to CMM gatherings and members.</p>
-        </div>
-        <div class="partnership-point">
-          <h3>Family-Wide Learning</h3>
-          <p>Teaching digital skills to CMM community members of every age, from kids to grandparents.</p>
-        </div>
-        <div class="partnership-point">
-          <h3>Cultural Connection</h3>
-          <p>Serving a community rooted in shared culture, language, and connection across generations.</p>
-        </div>
-      </div>
-
-      <div class="partner-gallery">
-        <img src="assets/cmm-photo-1.jpg" alt="THHYE volunteers leading a digital game workshop for CMM kids" />
-        <img src="assets/cmm-photo-2.jpg" alt="THHYE and CMM community members after a Tech Made Simple workshop" />
-      </div>
-      <div class="partner-divider"></div>
-
-      <h3 class="partner-subtitle">Telugu Association of Central Ohio</h3>
-      <div class="partnership-hero">
-        <div class="partnership-copy">
-          <p>
-            THHYE partners with the Telugu Association of Central Ohio (TACO) to bring free technology workshops to TACO families and youth across the Columbus area.
-          </p>
-          <p>
-            Founded in 1984, TACO has spent decades bringing the Central Ohio Telugu community together through cultural events, education, and service. That focus on learning makes it a natural home for THHYE's hands-on sessions.
-          </p>
-          <p>
-            Our first workshop with TACO introduced kids to artificial intelligence: what AI is, how it works, and how to use it responsibly, including its limits like false information and over-reliance.
-          </p>
-          <a href="contact.html" class="btn-primary">Partner With Us</a>
-        </div>
-
-        <div class="partner-panel">
-          <div class="partner-mark" aria-label="Telugu Association of Central Ohio">
-            <img class="partner-logo-img" src="assets/taco-logo.png" alt="Telugu Association of Central Ohio (TACO) logo" />
-            <div class="partner-logo-sub">Community Partner</div>
+    </section>
+    <section class="partner">
+      <div class="wrap">
+        <div class="partner-top">
+          <div class="partner-logo"><img src="assets/gmoco-logo.png" alt="GMOCO, Gujarati Mandal of Central Ohio logo" /></div>
+          <div>
+            <h2>GMOCO YUVA Connect</h2>
+            <p class="since">The youth team of the Gujarati Mandal of Central Ohio</p>
+            <div class="prose"><p>We work alongside GMOCO's YUVA Connect team to bring practical, welcoming technology workshops to more community members.</p><p>YUVA Connect's focus on youth engagement matches THHYE's mission: students helping others build confidence with everyday digital tools.</p></div>
+            <ul class="did"><li><svg class="ui" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Volunteer support.</strong> Connecting student volunteers with workshops where they can teach.</span></li><li><svg class="ui" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Community reach.</strong> Bringing tech education to more local families.</span></li><li><svg class="ui" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Youth leadership.</strong> Real chances for young people to lead with patience and skill.</span></li></ul>
           </div>
-          <div class="partner-title">Learning Across Generations</div>
-          <p class="partner-detail">
-            TACO connects THHYE volunteers with young learners and families in the Telugu community, giving students a place to teach the digital skills that matter today.
-          </p>
+        </div>
+        
+      </div>
+    </section>
+    <section class="section tint closing">
+      <div class="wrap">
+        <div>
+          <h2>Run a community organization?</h2>
+          <p class="lede">We'll design a free workshop for your members, in your space, around what they want to learn.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="contact.html">Become a partner <svg class="ui" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
+    </section>
+  </main>
 
-      <div class="partnership-points">
-        <div class="partnership-point">
-          <h3>AI Literacy for Kids</h3>
-          <p>Teaching young learners what AI is, where it helps, and where to think critically.</p>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <a class="brand" href="index.html">
+            <img src="assets/thhye-mark.png" alt="" />
+            <span><strong>THHYE</strong><small>Technology Helping Hands for Youth and Elderly</small></span>
+          </a>
+          <p>A student-led nonprofit teaching free technology workshops to kids and older adults in Central Ohio.</p>
         </div>
-        <div class="partnership-point">
-          <h3>Interactive Sessions</h3>
-          <p>Think-pair-share questions and discussion keep every student involved, not just listening.</p>
+        <div>
+          <h4>Workshops</h4>
+          <ul>
+            <li><a href="index.html#programs">What we teach</a></li>
+            <li><a href="index.html#custom">Custom workshops</a></li>
+            <li><a href="online-workshops.html">Online sessions</a></li>
+            <li><a href="safety-resources.html">Safety tips</a></li>
+          </ul>
         </div>
-        <div class="partnership-point">
-          <h3>Community Roots</h3>
-          <p>Serving a community that has supported education and culture in Central Ohio since 1984.</p>
+        <div>
+          <h4>THHYE</h4>
+          <ul>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="partnerships.html">Partners</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://www.linkedin.com/company/thhye-technology-helping-hands-for-youth-and-elderly/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
         </div>
       </div>
-
-      <div class="partner-gallery">
-        <img src="assets/taco-photo-3.jpg" alt="THHYE volunteers presenting a starter question on AI to kids at a TACO workshop" />
-        <img src="assets/taco-photo-4.jpg" alt="THHYE volunteers explaining the pros and cons of AI to TACO students" />
-        <img src="assets/taco-photo-1.jpg" alt="A THHYE volunteer leading the AI workshop for TACO kids" />
-        <img src="assets/taco-photo-2.jpg" alt="Students participating in the THHYE AI workshop with TACO" />
+      <div class="bottom">
+        <span>© 2026 THHYE. Founded by Aarav Patel and Aryan Kondekar.</span>
+        <a href="mailto:thhye.help@gmail.com">thhye.help@gmail.com</a>
       </div>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo">THHYE<span>.</span></div>
-    <p class="footer-tagline">Technology Helping Hands for Youth and Elderly</p>
-    <ul class="footer-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#workshops">Workshops</a></li>
-      <li><a href="index.html#locations">Locations</a></li>
-      <li><a href="online-workshops.html">Online Workshops</a></li>
-      <li><a href="safety-resources.html">Safety Resources</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="partnerships.html">Partnerships</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="https://www.linkedin.com/company/thhye-technology-helping-hands-for-youth-and-elderly/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-    </ul>
-    <p class="footer-copy">© 2025 THHYE — Founded by Aarav Patel & Aryan Kondekar. All rights reserved.</p>
   </footer>
-
   <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
     <div class="cookie-copy">
       <strong>Help us improve THHYE.</strong>
-      We use optional cookies to understand anonymous visits, section views, and contact attempts. We do not track your contact message, name, or email in analytics.
+      We use optional cookies to understand anonymous visits, section views, and contact attempts. We never track your message, name, or email.
     </div>
     <div class="cookie-actions">
       <button class="cookie-btn decline" type="button" onclick="setCookieConsent(false)">Decline</button>
       <button class="cookie-btn accept" type="button" onclick="setCookieConsent(true)">Accept</button>
     </div>
   </div>
-
   <script src="common.js"></script>
+  <script src="site.js"></script>
 </body>
 </html>

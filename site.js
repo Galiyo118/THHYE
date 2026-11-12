@@ -44,6 +44,7 @@
       (v('org') ? '\nGroup / organization: ' + v('org') : '') +
       '\nTopic: ' + v('topic') + '\n\n' + v('message')
     );
+    if (window.trackEvent) trackEvent('contact_attempt', { topic: v('topic') });
     window.location.href = 'mailto:thhye.help@gmail.com?subject=' + subject + '&body=' + body;
     done.classList.add('show');
   });
