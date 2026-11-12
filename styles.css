@@ -1339,3 +1339,5 @@ footer {
   .cookie-actions { width: 100%; }
   .cookie-btn { flex: 1; }
 }
+
+.partner-gallery img[src*="taco-photo-1"] { object-position: center 72%; }
